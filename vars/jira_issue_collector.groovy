@@ -6,8 +6,8 @@ def jsonSlurper = new JsonSlurper()
 def resultJson = jsonSlurper.parseText(data)
 def projectKey = '"'+resultJson.key+'"'
  
-stringify=${'projectKey'}
- echo $stringify
+stringify="${projectKey}"
+ echo "$stringify"
 sh '''
 
  curl  -H 'authorization: Basic cmlnOmRpZ2l0YWxyaWdAMTIz'  -X GET \
