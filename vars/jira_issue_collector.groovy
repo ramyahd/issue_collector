@@ -2,7 +2,6 @@ import groovy.json.JsonSlurper
 
 @NonCPS
 collectissue(String data){
-sh '''
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data)
 def projectKey = '"'+resultJson.key+'"'
