@@ -15,7 +15,6 @@ echo "$projectName"
   try {
       connection.connect()
      def line = new BufferedReader(new InputStreamReader(connection.getInputStream())).readLine()
-     def jsonSlurper = new JsonSlurper()
      return jsonSlurper.parseText(line)
   } finally {
         connection.disconnect();
