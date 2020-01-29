@@ -6,7 +6,7 @@ def jsonSlurper = new JsonSlurper()
 def resultJson = jsonSlurper.parseText(data)
 def projectKey = '"'+resultJson.key+'"'
  
- echo ${projectKey}
+ println "${projectKey}"
  
 sh '''
  curl -X GET \
