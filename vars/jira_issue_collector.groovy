@@ -6,7 +6,7 @@ def jsonSlurper = new JsonSlurper()
 def resultJson = jsonSlurper.parseText(data)
 def projectKey = '"'+resultJson.key+'"'
  
- def project=projectKey
+ def project=$projectKey
 
 sh '''
  echo "$project"
