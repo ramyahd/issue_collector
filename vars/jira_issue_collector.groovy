@@ -5,7 +5,6 @@ collectissue(String data){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data)
 def projectKey = '"'+resultJson.key+'"'
- {
 
 sh '''
  curl -X GET \
@@ -17,7 +16,6 @@ sh '''
  '''
  }
  
-}
  def call(){
  def request = libraryResource 'data1.json'
  collectissue(request)
