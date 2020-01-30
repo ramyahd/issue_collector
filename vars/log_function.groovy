@@ -15,7 +15,7 @@ if(inputFile.exists())
   {
      inputFile.write("${projectName}")
   }
-}*/*/
+}*/
 //}
 def call(message)
 {
