@@ -5,7 +5,7 @@ def jsonSlurper = new JsonSlurper()
 def resultJson = jsonSlurper.parseText(data)
 def projectName = resultJson.key
 
-def fileName = "test1.txt"
+def fileName = "jira.txt"
 def inputFile = new File("C:\\"+fileName)
 if(inputFile.exists())
   {
