@@ -1,6 +1,6 @@
 import groovy.json.JsonSlurper 
 @NonCPS
-createlog(String data){
+createlog(String data, string message){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data)
 def projectName = resultJson.key
