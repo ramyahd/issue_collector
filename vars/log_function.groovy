@@ -5,7 +5,7 @@ def jsonSlurper = new JsonSlurper()
 def resultJson = jsonSlurper.parseText(data)
 def projectName = resultJson.key
 
-  echo '"$projectName">jira.txt'
+  echo "${projectName}" > jira.txt
 }
 def call(){
 def request = libraryResource 'data1.json'
