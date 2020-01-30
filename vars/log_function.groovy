@@ -1,6 +1,6 @@
 import groovy.json.JsonSlurper 
 @NonCPS
-createlog(String data, string message){
+/*createlog(String data, string message){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data)
 def projectName = resultJson.key
@@ -15,13 +15,16 @@ if(inputFile.exists())
   {
      inputFile.write("${projectName}")
   }
-}*/
-}
+}*/*/
+//}
 def call(message)
 {
  println(message)
  def request = libraryResource 'data1.json'
-  createlog(request,message)
+ def jsonSlurper = new JsonSlurper() 
+ def resultJson = jsonSlurper.parseText(request)
+def projectName = resultJson.key
+  sh "echo ${projectName} ${message} >log.txt"
 }
 /*def call(){
 def request = libraryResource 'data1.json'
