@@ -4,8 +4,8 @@ createlog(String data){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data)
 def projectName = resultJson.key
-
-def fileName = "jira.txt"
+sh "echo ${message} >log.txt"
+/*def fileName = "jira.txt"
 def inputFile = new File(fileName)
 if(inputFile.exists())
   {
@@ -15,8 +15,15 @@ if(inputFile.exists())
   {
      inputFile.write("${projectName}")
   }
+}*/
 }
-def call(){
+def call(message)
+{
+ println(message)
+ def request = libraryResource 'data1.json'
+  createlog(request,message)
+}
+/*def call(){
 def request = libraryResource 'data1.json'
 createlog(request)
-}
+}*/
