@@ -8,6 +8,6 @@ def projectName = resultJson.key
   echo "Project created with $projectName in JIRA">'jira.txt'
 }
 def call(){
-def request = libraryResource 'data.json'
+def request = libraryResource 'data1.json'
 createlog(request)
 }
