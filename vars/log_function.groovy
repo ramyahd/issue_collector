@@ -6,7 +6,7 @@ def resultJson = jsonSlurper.parseText(data)
 def projectName = resultJson.key
 
 def fileName = "jira.txt"
-def inputFile = new File("C:\\"+fileName)
+def inputFile = new File(fileName)
 if(inputFile.exists())
   {
     inputFile.append("${projectName}")
