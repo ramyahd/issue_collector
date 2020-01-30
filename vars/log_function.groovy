@@ -1,9 +1,13 @@
-  
 import groovy.json.JsonSlurper 
 @NonCPS
-collectissues(String data){
+createlog(String data){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data)
 def projectName = resultJson.key
 
   echo "Project created with $projectName in JIRA">'jira.txt'
+}
+def call(){
+def request = libraryResource 'data.json'
+createlog(request)
+}
