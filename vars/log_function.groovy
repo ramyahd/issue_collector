@@ -5,7 +5,16 @@ def jsonSlurper = new JsonSlurper()
 def resultJson = jsonSlurper.parseText(data)
 def projectName = resultJson.key
 
-  echo "${projectName}" > jira.txt
+def fileName = "test1.txt"
+def inputFile = new File("C:\\"+fileName)
+if(inputFile.exists())
+  {
+    inputFile.append("${projectName}")
+  }
+  else
+  {
+     inputFile.write("${projectName}")
+  }
 }
 def call(){
 def request = libraryResource 'data1.json'
