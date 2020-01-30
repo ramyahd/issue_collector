@@ -13,8 +13,7 @@ echo "$projectName"
      httpMode: 'GET', url:"http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/search?jql=project%3D${projectName}&fields=key%2Csummary%2Cdescription&maxResults=1000&startAt=0"
 
 }
-final Logger logger = LoggerFactory.getLogger("jira_collect_issue.groovy");
-logger.trace("Test log output message");
+
 
 def call(){
  def request = libraryResource 'data1.json'
