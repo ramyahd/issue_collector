@@ -24,8 +24,8 @@ def call(message)
  def jsonSlurper = new JsonSlurper() 
  def resultJson = jsonSlurper.parseText(request)
  def projectName = resultJson.key
- currentDate=`date` 
-  sh " echo '${currentDate}' JIRA project with the projectname '${projectName}' ${message} >>log.txt"
+  Date date = new Date() 
+  sh " echo '${date}' JIRA project with the projectname '${projectName}' ${message} >>log.txt"
 }
 /*def call(){
 def request = libraryResource 'data1.json'
