@@ -34,7 +34,7 @@ def projLength = resultJson.name.size()
     "projectTypeKey": ${projectTypeKey},
     "projectTemplateKey": "com.atlassian.jira-core-project-templates:jira-core-project-management",
     "description": "Example Project description",
-    "lead": ${project_lead},
+    "project_lead": ${project_lead},
     "assigneeType": "PROJECT_LEAD"
 }""", responseHandle: 'NONE', url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/project'
 
