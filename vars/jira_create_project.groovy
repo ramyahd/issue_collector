@@ -8,9 +8,9 @@ def resultJson = jsonSlurper.parseText(data)
  //def resultJson = slurper.parseText(data)
   println resultJson
   println resultJson?.number
-def projectName = '"'+resultJson.project_name+'"'
-def project_typeKey= '"'+resultJson.project_typeKey+'"'
- def project_lead = '"'+resultJson.project_lead+'"'
+def projectName = '"'+resultJson.name+'"'
+def projectTypeKey= '"'+resultJson.projectTypeKey+'"'
+ def lead = '"'+resultJson.lead+'"'
 def length = 3
 def projLength = resultJson.name.size()
  if(projLength>=3){
@@ -35,10 +35,10 @@ def projLength = resultJson.name.size()
     httpMode: 'POST', requestBody: """{
     "key": ${projKey},
     "name": ${projectName},
-    "projectTypeKey": ${project_typeKey},
+    "projectTypeKey": ${projectTypeKey},
     "projectTemplateKey": "com.atlassian.jira-core-project-templates:jira-core-project-management",
     "description": "Example Project description",
-    "lead": ${project_lead},
+    "lead": ${lead},
     "assigneeType": "PROJECT_LEAD"
 }""", responseHandle: 'NONE', url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/project'
 
