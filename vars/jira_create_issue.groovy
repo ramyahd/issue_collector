@@ -30,7 +30,7 @@ httpRequest authentication: 'jira_password',
      "fields": {
        "project":
        {
-          "key": "${projKey}"
+          "key": ${projKey}
        },
        "summary": "this is summary 1",
        "description": "this is description",
