@@ -2,7 +2,7 @@ def call(jsondata){
 def jsonString = jsondata
 //println(jsonString)
 def jsonObj = readJSON text: jsonString
-println(jsonObj.ci)
+println(jsonObj.alm)
 
 String a=jsonObj.alm.projects.project.project_name
 String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
