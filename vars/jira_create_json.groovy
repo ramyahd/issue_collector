@@ -1,6 +1,6 @@
 def call(jsondata){
 def jsonString = jsondata
-println(jsonString)
+//println(jsonString)
 def jsonObj = readJSON text: jsonString
 println(jsonObj.ci)
 
@@ -18,8 +18,10 @@ env.projectTypeKey = projecttypeKey
 env.lead = projectlead
 
 
-sh "rm -rf Text.xml"
-
+//sh "rm -rf Text.xml"
+println 'env.name'
+ println 'name'
+ println 'projectTypeKey'
 
 
 def length = 3
