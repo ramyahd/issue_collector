@@ -20,6 +20,7 @@ env.lead = projectlead
 //sh "rm -rf Text.xml"
  println "projectName"
  println "projecttypeKey"
+ println "name"
 
 
 def length = 3
