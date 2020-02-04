@@ -50,12 +50,12 @@ def projLength = name.size()
     customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'], 
                     [maskValue: false, name: 'Accept', value: 'application/json']], 
     httpMode: 'POST', requestBody: """{
-    "key": "${projKey}",
-    "name": "${projectName}",
-    "projectTypeKey": "${projectTypeKey}",
+    "project_key": "${projKey}",
+    "project_name": "${projectName}",
+    "project_typeKey": "${projectTypeKey}",
     "projectTemplateKey": "com.atlassian.jira-core-project-templates:jira-core-project-management",
     "description": "Example Project description",
-    "lead": "${lead}",
+    "project_lead": "${lead}",
     "assigneeType": "PROJECT_LEAD"
 }""", url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/project'
 
