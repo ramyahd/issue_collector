@@ -30,12 +30,12 @@ httpRequest authentication: 'jira_password',
      "fields": {
        "project":
        {
-          "key": "{${projKey}}"
+          "key": ${projKey}
        },
        "summary": "this is summary 1",
        "description": "this is description",
        "issuetype": {
-          "name": "{{'Task'}}"
+          "name": "Task"
        }
    }
 }''', responseHandle: 'NONE', url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/issue/'
