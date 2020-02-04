@@ -39,6 +39,8 @@ def projLength = name.size()
    key=appendStr.toUpperCase();
    }
  def projKey = '"'+key+'"'
+ 
+ println "projKey"
 // def project_TypeKey= '"'+resultJson.projectTypeKey+'"'
  //def proj_lead = '"'+resultJson.lead+'"'
  
