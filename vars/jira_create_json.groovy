@@ -4,16 +4,16 @@ def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
 println(jsonObj.alm)
 
-//String a=jsonObj.alm.projects.project.project_name
-String a=jsonObj.alm.projects.project.name
+String a=jsonObj.alm.projects.project.project_name
+//String a=jsonObj.alm.projects.project.name
 String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
 
-//String b=jsonObj.alm.projects.project.project_typeKey
-String b=jsonObj.alm.projects.project.projectTypeKey
+String b=jsonObj.alm.projects.project.project_typeKey
+//String b=jsonObj.alm.projects.project.projectTypeKey
  String projectTypeKey=b.replaceAll("\\[", "").replaceAll("\\]","");
 
-//String c=jsonObj.alm.projects.project.project_lead
-String c=jsonObj.alm.projects.project.lead
+String c=jsonObj.alm.projects.project.project_lead
+//String c=jsonObj.alm.projects.project.lead
  String lead=a.replaceAll("\\[", "").replaceAll("\\]","");
 
 env.name = projectName
