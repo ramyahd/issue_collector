@@ -20,17 +20,17 @@ def projLength = resultJson.name.size()
    appendStr=appendStr+resultJson.name.substring(0, Math.min(projectName.length(), len));
    key=appendStr.toUpperCase();
    }
- def projKey = key
+ def projKey = '"'+key+'"'
  println projKey   
     
 httpRequest authentication: 'jira_password',
  customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'],
                  [maskValue: false, name: 'Accept', value: 'application/json']], 
- httpMode: 'POST', requestBody: '''{
+ httpMode: 'POST', requestBody: """{
      "fields": {
        "project":
        {
-          "key": "SMAYA"
+          "key": "${projKey}"
        },
        "summary": "this is summary 1",
        "description": "this is description",
@@ -38,7 +38,7 @@ httpRequest authentication: 'jira_password',
           "name": "Task"
        }
    }
-}''', responseHandle: 'NONE', url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/issue/'
+}""", responseHandle: 'NONE', url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/issue/'
 }
 
 def call(){
