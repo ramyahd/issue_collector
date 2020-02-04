@@ -50,7 +50,17 @@ def projLength = name.size()
 // def project_TypeKey= '"'+resultJson.projectTypeKey+'"'
  //def proj_lead = '"'+resultJson.lead+'"'
  
- httpRequest authentication: 'jira_password', 
+ 
+   sh """
+      curl --request POST \
+  --url http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/project \
+  --header 'authorization: Basic cmlnOmRpZ2l0YWxyaWdAMTIz' \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/json' \
+  --data '{\r\n          \r\n          "name": "${projectName}",\r\n          "key":"${projKey}",\r\n          "projectTypeKey": "${projectTypeKey}",\r\n          "lead": "${lead}"\r\n}\r\n\r\n'"""
+           
+ 
+/* httpRequest authentication: 'jira_password', 
     customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'], 
                     [maskValue: false, name: 'Accept', value: 'application/json']], 
     httpMode: 'POST', requestBody: '''{
@@ -63,7 +73,7 @@ def projLength = name.size()
     "assigneeType": "PROJECT_LEAD"
 }''', responseHandle:'NONE' , url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/project'
 
- 
+ */
 }
 
 
