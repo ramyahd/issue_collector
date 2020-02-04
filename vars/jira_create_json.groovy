@@ -21,6 +21,7 @@ env.projectTypeKey = projectTypeKey
 env.lead = lead
 
 //sh "rm -rf Text.xml"
+ println(a)
  println(projectName)
  println (projectTypeKey)
  println(name)
