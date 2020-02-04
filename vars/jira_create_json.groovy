@@ -42,7 +42,7 @@ def projLength = name.size()
    }
  def projKey = '"'+key+'"'
  
- println "projKey"
+ println(projKey)
 // def project_TypeKey= '"'+resultJson.projectTypeKey+'"'
  //def proj_lead = '"'+resultJson.lead+'"'
  
