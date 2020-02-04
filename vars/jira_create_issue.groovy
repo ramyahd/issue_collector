@@ -21,7 +21,7 @@ def projLength = resultJson.name.size()
    key=appendStr.toUpperCase();
  }
  def projKey = '"'+key+'"'
-    
+ echo 'projKey'   
     
 httpRequest authentication: 'jira_password', customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'], [maskValue: false, name: 'Accept', value: 'application/json']], httpMode: 'POST', requestBody: '''{
     "fields": {
