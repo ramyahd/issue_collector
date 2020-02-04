@@ -3,7 +3,7 @@ import groovy.json.JsonSlurper
 createIssues(String data){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data)
-def projectName = '"'+resultJson.name+'"'
+def projectName = resultJson.name
 def length = 3
 def projLength = resultJson.name.size()
  if(projLength>=3){
@@ -20,7 +20,7 @@ def projLength = resultJson.name.size()
    appendStr=appendStr+resultJson.name.substring(0, Math.min(projectName.length(), len));
    key=appendStr.toUpperCase();
    }
- def projKey = '"'+key+'"'
+ def projKey = key
  println projKey   
     
 httpRequest authentication: 'jira_password',
