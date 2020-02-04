@@ -40,7 +40,7 @@ def projLength = name.size()
    appendStr=appendStr+name.substring(0, Math.min(projectName.length(), len));
    key=appendStr.toUpperCase();
    }
- def projKey = '"'+key+'"'
+ def projKey = key
  
  println(projKey)
 // def project_TypeKey= '"'+resultJson.projectTypeKey+'"'
@@ -57,7 +57,7 @@ def projLength = name.size()
     "description": "Example Project description",
     "lead": "${lead}",
     "assigneeType": "PROJECT_LEAD"
-}""", responseHandle: 'NONE', url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/project'
+}""", url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/project'
 
  
 }
