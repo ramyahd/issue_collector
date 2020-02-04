@@ -48,7 +48,7 @@ def projLength = name.size()
     httpMode: 'POST', requestBody: """{
     "key": ${projKey},
     "name": ${projectName},
-    "projectTypeKey": "${projectTypeKey",
+    "projectTypeKey": "${projectTypeKey}",
     "projectTemplateKey": "com.atlassian.jira-core-project-templates:jira-core-project-management",
     "description": "Example Project description",
     "lead": "${lead}",
