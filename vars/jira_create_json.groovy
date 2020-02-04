@@ -25,6 +25,7 @@ env.lead = projectlead
 
 def length = 3
 def projLength = name.size()
+ println(projLength)
  if(projLength>=3){
   key=name.substring(0, Math.min(projLength, length)).toUpperCase();
  }
