@@ -1,4 +1,11 @@
-{
-"name":"MOKSHA",
-"key":"AVR"
-}
+ {
+
+          "create": true,
+
+          "project_name": "EDN250",
+
+          "project_typeKey": "software",
+
+          "project_lead": "rig"
+
+ }
