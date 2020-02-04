@@ -8,7 +8,7 @@ def resultJson = jsonSlurper.parseText(data)
  //def resultJson = slurper.parseText(data)
   println resultJson
   println resultJson?.number
-def projectName = '"'+resultJson.name+'"'
+def projectName = '"'+resultJson.project_name+'"'
 def project_typeKey= '"'+resultJson.project_typeKey+'"'
  def project_lead = '"'+resultJson.project_lead+'"'
 def length = 3
