@@ -7,7 +7,7 @@ def resultJson = jsonSlurper.parseText(data)
  //def slurper = new groovy.json.JsonSlurper()
  //def resultJson = slurper.parseText(data)
   println resultJson
-  println resultJson?.number
+ // println resultJson?.number
 def projectName = '"'+resultJson.name+'"'
 def projectTypeKey= '"'+resultJson.projectTypeKey+'"'
  def lead = '"'+resultJson.lead+'"'
