@@ -8,18 +8,18 @@ String a=jsonObj.alm.projects.project.project_name
 String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
 
 String b=jsonObj.alm.projects.project.project_typeKey
-String projecttypeKey=b.replaceAll("\\[", "").replaceAll("\\]","");
+String projectTypeKey=b.replaceAll("\\[", "").replaceAll("\\]","");
 
 String c=jsonObj.alm.projects.project.project_lead
-String projectlead=a.replaceAll("\\[", "").replaceAll("\\]","");
+String lead=a.replaceAll("\\[", "").replaceAll("\\]","");
 
 env.name = projectName
-env.projectTypeKey = projecttypeKey
-env.lead = projectlead
+env.projectTypeKey = projectTypeKey
+env.lead = lead
 
 //sh "rm -rf Text.xml"
  println(projectName)
- println (projecttypeKey)
+ println (projectTypeKey)
  println(name)
 
 
@@ -52,10 +52,10 @@ def projLength = name.size()
     httpMode: 'POST', requestBody: """{
     "key": "${projKey}",
     "name": "${projectName}",
-    "projectTypeKey": "${projecttypeKey}",
+    "projectTypeKey": "${projecTypeKey}",
     "projectTemplateKey": "com.atlassian.jira-core-project-templates:jira-core-project-management",
     "description": "Example Project description",
-    "lead": "${projectlead}",
+    "lead": "${lead}",
     "assigneeType": "PROJECT_LEAD"
 }""", url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/project'
 
