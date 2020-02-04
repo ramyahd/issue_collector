@@ -50,8 +50,8 @@ def projLength = name.size()
     customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'], 
                     [maskValue: false, name: 'Accept', value: 'application/json']], 
     httpMode: 'POST', requestBody: """{
-    "key": ${projKey},
-    "name": ${projectName},
+    "key": "${projKey}",
+    "name": "${name}",
     "projectTypeKey": "${projectTypeKey}",
     "projectTemplateKey": "com.atlassian.jira-core-project-templates:jira-core-project-management",
     "description": "Example Project description",
