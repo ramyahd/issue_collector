@@ -17,16 +17,15 @@ env.name = projectName
 env.projectTypeKey = projecttypeKey
 env.lead = projectlead
 
-printenv
 //sh "rm -rf Text.xml"
- println 'projectName'
- println 'projecttypeKey'
+ println "projectName"
+ println "projecttypeKey"
 
 
 def length = 3
 def projLength = name.size()
  if(projLength>=3){
-  key=resultJson.name.substring(0, Math.min(projLength, length)).toUpperCase();
+  key=name.substring(0, Math.min(projLength, length)).toUpperCase();
  }
  else {
    def appendStr = "";
@@ -34,9 +33,9 @@ def projLength = name.size()
    int len = currentLength%projLength;
    int repeat = currentLength/projLength;
    for (int i=0;i<repeat;i++) {
-    appendStr = appendStr + resultJson.name;
+    appendStr = appendStr + name;
    }
-   appendStr=appendStr+resultJson.name.substring(0, Math.min(projectName.length(), len));
+   appendStr=appendStr+name.substring(0, Math.min(projectName.length(), len));
    key=appendStr.toUpperCase();
    }
  def projKey = '"'+key+'"'
