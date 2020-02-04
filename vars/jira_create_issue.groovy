@@ -39,6 +39,6 @@ httpRequest authentication: 'jira_password', customHeaders: [[maskValue: false, 
 }
 
 def call(){
- def request = libraryResource 'jira.json'
+ def request = libraryResource 'data.json'
  createIssues(request)
 }
