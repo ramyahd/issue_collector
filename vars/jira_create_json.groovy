@@ -12,9 +12,9 @@ String b=jsonObj.alm.projects.project.project_typeKey
 //String b=jsonObj.alm.projects.project.projectTypeKey
  String projectTypeKey=b.replaceAll("\\[", "").replaceAll("\\]","");
 
-String c=jsonObj.alm.projects.project.projectLead
+String c=jsonObj.alm.projects.project.project_lead
 //String c=jsonObj.alm.projects.project.lead
- String lead=a.replaceAll("\\[", "").replaceAll("\\]","");
+ String lead=c.replaceAll("\\[", "").replaceAll("\\]","");
 
 env.name = projectName
 env.projectTypeKey = projectTypeKey
