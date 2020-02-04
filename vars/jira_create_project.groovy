@@ -9,7 +9,7 @@ def resultJson = jsonSlurper.parseText(data)
   println resultJson
   println resultJson?.number
 def projectName = '"'+resultJson.name+'"'
-def projectTypeKey= '"'+resultJson.project_typeKey+'"'
+def project_typeKey= '"'+resultJson.project_typeKey+'"'
  def project_lead = '"'+resultJson.project_lead+'"'
 def length = 3
 def projLength = resultJson.name.size()
@@ -35,7 +35,7 @@ def projLength = resultJson.name.size()
     httpMode: 'POST', requestBody: """{
     "key": ${projKey},
     "name": ${projectName},
-    "projectTypeKey": ${projectTypeKey},
+    "projectTypeKey": ${project_typeKey},
     "projectTemplateKey": "com.atlassian.jira-core-project-templates:jira-core-project-management",
     "description": "Example Project description",
     "lead": ${project_lead},
