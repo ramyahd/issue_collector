@@ -3,11 +3,11 @@ import groovy.json.JsonSlurper
 @NonCPS
 createProject(String data){
 def jsonSlurper = new JsonSlurper() 
-//def resultJson = jsonSlurper.parseText(data)
- def slurper = new groovy.json.JsonSlurper()
- def resultJson = slurper.parseText(data)
-  println result
-  println result?.number
+def resultJson = jsonSlurper.parseText(data)
+ //def slurper = new groovy.json.JsonSlurper()
+ //def resultJson = slurper.parseText(data)
+  println resultJson
+  println resultJson?.number
 def projectName = '"'+resultJson.project_name+'"'
 def projectTypeKey= '"'+resultJson.project_typeKey+'"'
  def project_lead = '"'+resultJson.project_lead+'"'
