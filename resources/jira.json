@@ -2,10 +2,10 @@
 
           "create": true,
 
-          "project_name": "EDN250",
+          "name": "EDN250",
 
-          "project_typeKey": "software",
+          "projectTypeKey": "software",
 
-          "project_lead": "rig"
+          "lead": "rig"
 
  }
