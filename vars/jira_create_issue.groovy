@@ -27,7 +27,7 @@ httpRequest authentication: 'jira_password', customHeaders: [[maskValue: false, 
     "fields": {
        "project":
        {
-          "key": "SAK"
+          "key": "AVR"
        },
        "summary": "this is summary 1",
        "description": "this is description",
