@@ -34,7 +34,7 @@ sh '''curl -X POST \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'postman-token: 03a3b589-c1d3-4234-8043-9335bf162947' \
-  -d '{"jql":"project = EDN","startAt":0,"maxResults":2,"fields":["id","key"]} '| jq .
+  -d '{"jql":"project = EDN","startAt":0,"maxResults":2,"fields":["id","key"]} '| json_reformat
  '''
  
 /*sh """curl -X GET \
