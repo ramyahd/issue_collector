@@ -38,11 +38,11 @@ def projLength = name.size()
     {
         "project":
         {
-            "key": "AVR"
+            "key": "${prpjKey}"
         },
         "parent":
         {
-            "key": "AVR-6"
+            "key": "${projKey}-6"
         },
         "summary": "Sub-task of TEST-101",
         "description": "Don't forget to do this too.",
