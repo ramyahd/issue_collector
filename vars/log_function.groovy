@@ -1,6 +1,4 @@
-import groovy.json.JsonSlurper 
-@NonCPS
-/*createlog(String data, string message){
+/*og(String data, string message){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data)
 def projectName = resultJson.key
@@ -17,15 +15,20 @@ if(inputFile.exists())
   }
 }*/
 //}
-def call(message)
+def call(message,jsondata)
 {
+  
+def jsonString = jsondata
+def jsonObj = readJSON text: jsonString
+println(jsonObj.alm)
+
+String a=jsonObj.alm.projects.project.project_name
+String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
+  
+ env.name = projectName
  println(message)
- def request = libraryResource 'data1.json'
- def jsonSlurper = new JsonSlurper() 
- def resultJson = jsonSlurper.parseText(request)
- def projectName = resultJson.key
   Date date = new Date() 
-  sh " echo '${date}' JIRA project with the projectname '${projectName}' ${message} >>log.txt"
+  sh " echo '${date}' JIRA '${projectName}' ${message} >>log.txt"
 }
 /*def call(){
 def request = libraryResource 'data1.json'
