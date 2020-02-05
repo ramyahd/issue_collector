@@ -51,3 +51,4 @@ sh '''curl -X POST \
  collectissues(request)
 }
 */
+}
