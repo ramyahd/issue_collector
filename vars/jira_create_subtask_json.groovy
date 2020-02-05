@@ -38,7 +38,7 @@ def projLength = name.size()
     {
         "project":
         {
-            "key": "${prpjKey}"
+            "key": "${projKey}"
         },
         "parent":
         {
