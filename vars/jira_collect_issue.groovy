@@ -34,8 +34,7 @@ env.name = projectName
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'postman-token: 03a3b589-c1d3-4234-8043-9335bf162947' \
-  -d '{"jql":"project = EDN","startAt":0,"maxResults":2,"fields":["id","key"]}'\
-  node <<< "var o = $(cat); console.log(JSON.stringify(o, null, 4));
+  -d '{"jql":"project = EDN","startAt":0,"maxResults":2,"fields":["id","key"]}'node <<< "var o = $(cat); console.log(JSON.stringify(o, null, 4));
  
  """
  
