@@ -42,7 +42,7 @@ def projLength = name.size()
         },
         "parent":
         {
-            "key": "${projKey}-6"
+            "key": "${projKey}-1"
         },
         "summary": "Sub-task of TEST-101",
         "description": "Don't forget to do this too.",
