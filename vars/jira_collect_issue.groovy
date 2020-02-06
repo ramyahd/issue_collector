@@ -51,4 +51,4 @@ sh """curl -X GET \
  collectissues(request)
 }
 */
-}
+
