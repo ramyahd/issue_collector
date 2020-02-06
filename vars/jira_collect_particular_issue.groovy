@@ -17,6 +17,6 @@ curl -X GET \
   -H 'accept: application/json' \
   -H 'authorization: Basic cmlnOmRpZ2l0YWxyaWdAMTIz' \
   -H 'cache-control: no-cache' \
-  -H 'content-type: application/json' | jq .fields."project"|map(.name)
+  -H 'content-type: application/json' | jq '.fields."project"|map(.name)'
   """
   }
