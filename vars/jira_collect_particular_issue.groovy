@@ -13,7 +13,7 @@ env.name = issueName
 
 sh """
 curl -X GET \
- 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/3/issue/${issueName}' \
+ 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/issue/${issueName}' \
   -H 'accept: application/json' \
   -H 'authorization: Basic cmlnOmRpZ2l0YWxyaWdAMTIz' \
   -H 'cache-control: no-cache' \
