@@ -15,20 +15,11 @@ if(inputFile.exists())
   }
 }*/
 //}
-def call(message,jsondata)
+def call(message)
 {
-  
-def jsonString = jsondata
-def jsonObj = readJSON text: jsonString
-println(jsonObj.alm)
-
-String a=jsonObj.alm.projects.project.project_name
-String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
-  
- env.name = projectName
- println(message)
+  println(message)
   Date date = new Date() 
-  sh " echo '${date}' JIRA '${projectName}' ${message} >>log.txt"
+  sh " echo '${date}' JIRA  ${message} >>log.txt"
 }
 /*def call(){
 def request = libraryResource 'data1.json'
