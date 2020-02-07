@@ -6,6 +6,11 @@ println(jsonObj.alm)
 
 String a=jsonObj.alm.projects.project.project_name
 String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
+
+String b=jsonObj.alm.projects.project.issue_name
+String issueName=b.replaceAll("\\[", "").replaceAll("\\]","");
+  
+env.issueName = issueName
   
 env.name = projectName
   
@@ -42,7 +47,7 @@ def projLength = name.size()
         },
         "parent":
         {
-            "key": "${projKey}-1"
+            "key": "${issueName}"
         },
         "summary": "Sub-task of TEST-101",
         "description": "Don't forget to do this too.",
