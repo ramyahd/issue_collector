@@ -1,6 +1,5 @@
 import groovy.json.* 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+
 
 /*@NonCPS
 //collectissues(String projectName){
@@ -36,7 +35,7 @@ sh '''curl -X GET \
   -H 'postman-token: 03a3b589-c1d3-4234-8043-9335bf162947' \
   -d '{"jql":"project = EDN","startAt":0,"maxResults":2,"fields":["id","key"]} '| json_reformat
  '''
- 
+} 
 /*sh """curl -X GET \
  'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/search?jql=project%3D${projectName}%20order%20by%20duedate&fields=id%2Ckey' \
   -H 'accept: application/json' \
