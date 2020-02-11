@@ -1,7 +1,6 @@
 import groovy.json.*
 
-
-@NONCPS
+@NonCPS
  create(String projectName){
 
 def jsonSlurper = new JsonSlurper()
