@@ -67,5 +67,5 @@ println(jsonObj.alm)
 String a=jsonObj.alm.projects.project.project_name
 String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
 
-create(metric,operator,warning,error)
+create(metric)
  }
