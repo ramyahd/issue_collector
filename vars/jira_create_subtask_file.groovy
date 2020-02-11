@@ -1,16 +1,15 @@
 import groovy.json.*
 
-@NonCPS
-//create(String projectName){
+
 def call(jsondata){
 def jsonString = jsondata
-//println(jsonString)
+def jsonSlurper = new JsonSlurper()
 def jsonObj = readJSON text: jsonString
 println(jsonObj.alm)
 String a=jsonObj.alm.projects.project.project_name
 String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
 env.name = projectName 
-def jsonSlurper = new JsonSlurper()
+
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/body.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
 def keyId = resultJson.id
