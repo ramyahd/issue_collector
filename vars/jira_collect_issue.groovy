@@ -25,6 +25,8 @@ String a=jsonObj.alm.projects.project.project_name
 String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
   
 env.name = projectName
+ HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+ echo '$HTTP_STATUS'
 
 /*sh '''curl -X GET \
   http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/search \
