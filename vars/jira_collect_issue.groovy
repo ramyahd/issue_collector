@@ -44,7 +44,7 @@ def process=sh """curl -X GET \
   -H 'content-type: application/json' -o ouput.json
  
 """
- print "Exit code: " + process.exitValue()
+ echo "$process"
 }
 /*def call(){
 def jsonString = jsondata
