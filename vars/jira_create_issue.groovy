@@ -38,7 +38,7 @@ httpRequest authentication: 'jira_password',
           "name": "Task"
        }
    }
-}""", responseHandle: 'STRING',outputFile: 'body.json', url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/issue/'
+}""", writeFile file: 'response.txt', text: response.content, url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/issue/'
 }
 
 def call(){
