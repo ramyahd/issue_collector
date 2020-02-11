@@ -39,8 +39,8 @@ def response = httpRequest authentication: 'jira_password',
        }
    }
 }""", writeFile file: 'response.txt', text: response.content, url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/issue/'
-println('Status: '+response.status)
-println('Response: '+response.content)
+echo"('Status: '+response.status)"
+echo"('Response: '+response.content)"
 }
 
 def call(){
