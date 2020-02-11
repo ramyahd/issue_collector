@@ -44,13 +44,13 @@ def process=sh """curl -X GET \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' -o ouput.json
   
-  HTTP_STATUS='$(echo "${process}" | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')'
  
 """
  
  
- echo '$HTTP_STATUS
- echo "$process"
+//  HTTP_STATUS='$(echo "${process}" | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')'
+ //echo '$HTTP_STATUS
+ //echo "$process"
 }
 /*def call(){
 def jsonString = jsondata
