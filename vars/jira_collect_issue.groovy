@@ -43,10 +43,12 @@ def process=sh """curl -X GET \
   -H 'authorization: Basic cmlnOmRpZ2l0YWxyaWdAMTIz' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' -o ouput.json
+  
+  HTTP_STATUS='$(echo ${process} | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')'
  
 """
  
- HTTP_STATUS="$(echo "${process}" | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')"
+ 
  echo '$HTTP_STATUS
  echo "$process"
 }
