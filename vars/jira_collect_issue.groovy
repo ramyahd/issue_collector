@@ -34,7 +34,7 @@ sh """STATUS=(curl -w '%{http_code}%' -i -XPOST 'http://ec2-13-58-47-71.us-east-
 
 
    
-  echo status
+  echo $STATUS
   if [ $STATUS  == "204" ] then
     echo "Got 204! All done!"
   else
