@@ -23,7 +23,7 @@ def projLength = resultJson.name.size()
  def projKey = key
  println projKey   
     
-httpRequest authentication: 'jira_password',
+def response = httpRequest authentication: 'jira_password',
  customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'],
                  [maskValue: false, name: 'Accept', value: 'application/json']], 
  httpMode: 'POST', requestBody: """{
@@ -39,6 +39,8 @@ httpRequest authentication: 'jira_password',
        }
    }
 }""", writeFile file: 'response.txt', text: response.content, url: 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/issue/'
+println('Status: '+response.status)
+println('Response: '+response.content)
 }
 
 def call(){
