@@ -46,8 +46,8 @@ def process=sh """curl -X GET \
  
 """
  
- HTTP_STATUS=$(echo ${process} | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
- echo '$HTTP_STATU
+ HTTP_STATUS="$(echo '${process}' | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')"
+ echo '$HTTP_STATUS
  echo "$process"
 }
 /*def call(){
