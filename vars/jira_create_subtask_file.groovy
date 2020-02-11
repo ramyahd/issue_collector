@@ -31,7 +31,7 @@ def projLength = name.size()
  httpRequest authentication: 'jira_password',
  customHeaders: [[maskValue: false, name: 'Content-Type', value: 'application/json'],
                  [maskValue: false, name: 'Accept', value: 'application/json']], 
- httpMode: 'POST', -v, requestBody: """{
+ httpMode: 'POST', requestBody: """{
     "fields":
     {
         "project":
