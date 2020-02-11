@@ -3,7 +3,7 @@ import groovy.json.JsonSlurper
 //import org.slf4j.LoggerFactory;
 
 @NonCPS
-collectissues(String data){
+collectissues(String projectName){
 def jsonSlurper = new JsonSlurper() 
 def resultJson = jsonSlurper.parseText(data)
 def projectName = resultJson.key
@@ -49,12 +49,12 @@ env.name = projectName
 def call(){
 def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
-println(jsonObj.alm)
+//println(jsonObj.alm)
 
 String a=jsonObj.alm.projects.project.project_name
 String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
   
-collectissues(request)
+collectissues(projectName)
 }
 
 
