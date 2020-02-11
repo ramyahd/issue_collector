@@ -4,11 +4,10 @@ import groovy.json.*
 create(String projectName){
 
 def jsonSlurper = new JsonSlurper()
-def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/QualityGateDetails.json"),"UTF-8"))
+def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/body.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
-def GateId = resultJson.id
-String b=jsonObj.alm.projects.project.issue_name
-String issueName=b.replaceAll("\\[", "").replaceAll("\\]","");
+def keyId = resultJson.id
+
  
 def length = 3
 def projLength = name.size()
@@ -43,7 +42,7 @@ def projLength = name.size()
         },
         "parent":
         {
-            "key": "${issueName}"
+            "key": "${keyId}"
         },
         "summary": "Sub-task of TEST-101",
         "description": "Don't forget to do this too.",
