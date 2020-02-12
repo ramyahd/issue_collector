@@ -34,10 +34,10 @@ def status = sh """curl -w '%{http_code}' -i -XPOST 'http://ec2-13-58-47-71.us-e
 """
 $httpCode = curl_getinfo($status, CURLINFO_HTTP_CODE);
   echo "$httpcode"
-  if ( $httpCode == "204" ) then
-    echo "Got 204! All done!"
+ if ( $httpCode == "204" ) 
+   System.out.println( "Got 204! All done!");
    
-fi
+//fi
  
   
  }
