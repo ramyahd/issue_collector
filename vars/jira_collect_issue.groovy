@@ -33,14 +33,19 @@ def create(){
   
   def total = resultJson.total
   echo "=============================Total $total"
-  //pushToInflux(total);
+  pushToInflux(total);
   
-   def STATUS=sh """
-    curl -w '%{http_code}' -i  -X POST \
-      'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' \
-      --data 'jira issues=${total}'
-  """
-  
-  echo "$STATUS"
+
  }
 
+
+def pushToInflux(totalIssues) {
+  
+  sh """
+    curl -w '%{http_code}' -i  -X POST \
+      'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' \
+      --data 'jira issues=${totalIssues} > test.txt'
+  """
+ def response = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/test.txt"))
+  echo "======================== $response" 
+}
