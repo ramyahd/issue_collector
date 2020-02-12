@@ -30,11 +30,11 @@ def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/
 def resultJson = jsonSlurper.parse(reader)
 def total = resultJson.total
   echo "$total"
-def status = sh """curl -w '%{http_code}' -i -XPOST 'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' --data-binary 'jira issues=${total}' 
+int status = sh """curl -w '%{http_code}' -i -XPOST 'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' --data-binary 'jira issues=${total}' 
 """
   
-  echo "%{http_code}"
-  if ( ${http_code} == 204 ) then
+  echo "$status"
+  if ( $status == 204 ) then
     echo "Got 204! All done!"
    
 fi
