@@ -37,15 +37,13 @@ $httpCode = curl_getinfo($status, CURLINFO_HTTP_CODE);
   // System.out.println( "Got 204! All done!");
    
 //fi
- 
-  
  }
 
 
 def call()
 {
 create()
-  echo "$httpCode"
+  echo "$status"
 }
  
 return this
