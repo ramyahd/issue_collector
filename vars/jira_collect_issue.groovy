@@ -29,20 +29,21 @@ def process=sh """curl  -X GET \
 @NonCPS
 def create(){
   def jsonSlurper = new JsonSlurper()
-  def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json"),"UTF-8"))
-  def resultJson = jsonSlurper.parse(reader)
+  //def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json"),"UTF-8"))
+  
+  String fileContents = new File('/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json').getText('UTF-8')
+  def resultJson = jsonSlurper.parse(fileContents)
+  
   def total = resultJson.total
-    echo "=============================Total $total"
-    totalIssues=total;
+  echo "=============================Total $total"
+  pushToInflux(total);
  }
 
 def pushToInflux(totalIssues) {
+  echo "Pushing data to influx"
   sh """
   curl -w '%{http_code}' -o statusCode.txt -X POST 'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' --data-binary 'jira issues=${totalIssues}'  
 """
-  def StatusReader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/statusCode.txt"),"UTF-8"))
-  
-  echo StatusReader
   echo "Check 1"
  
 }
