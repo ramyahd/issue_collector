@@ -41,6 +41,7 @@ fi
  
   
  }
+echo "status"
 
 /*def call()
 {
