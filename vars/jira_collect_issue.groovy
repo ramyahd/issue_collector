@@ -30,8 +30,8 @@ def process=sh """curl  -X GET \
 def create(){
   def jsonSlurper = new JsonSlurper()
   //def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json"),"UTF-8"))
-  
-  String fileContents = new File('/var/lib/jenkins/workspace/${env.JOB_NAME}/output.json').getText('UTF-8')
+  def myVar = build.getBuildVariables().get('myVar')
+  String fileContents = new File('/var/lib/jenkins/workspace/' + ${JOB_NAME}+ /output.json').getText('UTF-8')
   def resultJson = jsonSlurper.parse(fileContents)
   
   def total = resultJson.total
