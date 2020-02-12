@@ -19,7 +19,7 @@ def process=sh """curl  -X GET \
   -H 'accept: application/json' \
   -H 'authorization: Basic cmlnOmRpZ2l0YWxyaWdAMTIz' \
   -H 'cache-control: no-cache' \
-  -H 'content-type: application/json' -o ouput.json
+  -H 'content-type: application/json' -o output.json
   
  
 """
@@ -31,7 +31,7 @@ def create(){
   def jsonSlurper = new JsonSlurper()
   //def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json"),"UTF-8"))
   
-  String fileContents = new File('/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json').getText('UTF-8')
+  String fileContents = new File('/var/lib/jenkins/workspace/${JOB_NAME}/output.json').getText('UTF-8')
   def resultJson = jsonSlurper.parse(fileContents)
   
   def total = resultJson.total
