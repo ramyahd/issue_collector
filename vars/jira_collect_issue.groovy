@@ -30,7 +30,7 @@ def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/
 def resultJson = jsonSlurper.parse(reader)
 def total = resultJson.total
   echo "=============================Total $total"
-  pushToInflux($total);
+  pushToInflux(total);
  }
 
 def pushToInflux(totalIssues) {
