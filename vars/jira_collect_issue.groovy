@@ -45,6 +45,7 @@ def pushToInflux(totalIssues) {
     echo "ALl set to go"
   } else {
     echo "INFLUX DB push failed"
+    error("INFLUX DB push failed");
   }
 }
 
