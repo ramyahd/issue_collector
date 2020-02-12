@@ -18,6 +18,6 @@ def done = sh """
   -H 'cache-control: no-cache' > Done.txt
 """
     
-    echo "$done.total"
+    echo "$done"
   }
 }
