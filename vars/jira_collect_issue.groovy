@@ -42,7 +42,7 @@ def pushToInflux(totalIssues) {
   echo "Pushing data to influx"
   echo "$totalIssues"
   sh """
-   curl -w %{http_code} -X POST \
+   curl -X POST \
   'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' \
   --data ' jira issues=6'
   """
