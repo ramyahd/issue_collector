@@ -36,9 +36,9 @@ def create(){
   //pushToInflux(total);
   
    sh """
-    curl -w %{http_code} -i -o statusCode2.txt -X POST \
+    curl -w %{http_code} -i  -X POST \
     'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' \
-    --data 'jira issues=6'
+    --data 'jira issues="${total}" >> output23.txt'
   """
  }
 
