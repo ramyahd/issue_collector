@@ -32,6 +32,8 @@ def total = resultJson.total
   echo "$total"
 def STATUS=sh """curl -w '%{http_code}' -i -XPOST 'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' --data-binary 'jira issues=${total}' 
 """
+  
+  echo "$STATUS"
   if ( '$STATUS' == "204" )
   {  
   echo "Got 204! All done!"
