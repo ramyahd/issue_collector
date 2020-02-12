@@ -24,7 +24,7 @@ def process=sh """curl  -X GET \
 } 
 
 @NonCPS
-create(){
+def create(){
 def jsonSlurper = new JsonSlurper()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
@@ -45,9 +45,9 @@ def STATUS=sh """curl -w '%{http_code}' -i -XPOST 'http://ec2-13-58-47-71.us-eas
   
  }
 
-def call()
+/*def call()
 {
 create()
-}
+}*/
  
 return this
