@@ -49,7 +49,7 @@ def pushToInflux(totalIssues) {
  def response =new File('/var/lib/jenkins/workspace/' + JOB_NAME + '/test2.txt').text
   echo "======================== $response" 
   
-  if($response == "204" || $response == "200) {
+  if (response == "204" || response == "200") {
       echo "DATA PUSHED TO INFLUX DB"
      } else {
      
