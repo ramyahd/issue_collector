@@ -34,7 +34,7 @@ def status = sh """curl -w '%{http_code}' -i -XPOST 'http://ec2-13-58-47-71.us-e
 """
 $httpCode = curl_getinfo($status, CURLINFO_HTTP_CODE);
 
-  echo"Got 204! All done!"
+  echo "Got 204! All done!"
    
 //fi
  }
