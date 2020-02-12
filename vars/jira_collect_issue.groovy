@@ -34,19 +34,13 @@ def total = resultJson.total
  }
 
 def pushToInflux(totalIssues) {
-  def status = sh """
-  curl -w '%{http_code}' -XPOST 'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' --data-binary 'jira issues=${totalIssues}'  
+  sh """
+  curl -w '%{http_code}' -o statusCode.txt -X POST 'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' --data-binary 'jira issues=${totalIssues}'  
 """
-  println(status);
- 
-  echo "Check 1"
-  echo status
+  def StatusReader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/statusCode.txt"),"UTF-8"))
   
-  if(status == "204" || status == "200") {
-    echo "ALl set to go"
-  } else {
-    echo "INFLUX DB push failed"
-    error("INFLUX DB push failed");
-  }
+  echo StatusReader
+  echo "Check 1"
+ 
 }
 
