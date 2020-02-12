@@ -35,18 +35,12 @@ def create(){
   echo "=============================Total $total"
   //pushToInflux(total);
   
-   sh """
-   STATUS=(curl -w '%{http_code}' -i  -X POST \
-    'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' \
-    --data 'jira issues=${total}')
-    
-    if [ $STATUS -eq 200 ]; then
-      echo "Got 200! All done!"
-      exit 0
-    else
-      echo "Got $STATUS :( Not done yet..."
-      exit 1
-  fi
+   def STATUS=sh """
+    curl -w '%{http_code}' -i  -X POST \
+      'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' \
+      --data 'jira issues=${total}'
   """
+  
+  echo "$STATUS"
  }
 
