@@ -33,9 +33,8 @@ def total = resultJson.total
 def status = sh """curl -w '%{http_code}' -i -XPOST 'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' --data-binary 'jira issues=${total}'  
 """
 $httpCode = curl_getinfo($status, CURLINFO_HTTP_CODE);
-  echo "$httpcode"
- if ( $httpCode == "204" ) 
-   System.out.println( "Got 204! All done!");
+echo "Printing"
+  // System.out.println( "Got 204! All done!");
    
 //fi
  
