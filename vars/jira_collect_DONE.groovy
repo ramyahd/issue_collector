@@ -9,7 +9,7 @@ String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
   
 env.name = projectName
 
-  withCredentials([usernamePassword(credentialsId: 'jira_password', passwordVariable: 'password', usernameVariable:'username')])
+  withCredentials([usernamePassword(credentialsId: 'jira_password', passwordVariable: 'password', usernameVariable:'username')]){
 sh """
  
   curl  -X GET \
@@ -18,4 +18,5 @@ sh """
 //-H 'authorization: jira_password' \
   -H 'cache-control: no-cache' \
 """
+  }
 }
