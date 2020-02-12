@@ -20,8 +20,6 @@ def process=sh """curl  -X GET \
   -H 'authorization: Basic cmlnOmRpZ2l0YWxyaWdAMTIz' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' -o output.json
-  
- 
 """
  
 } 
@@ -41,15 +39,14 @@ def create(){
 def pushToInflux(totalIssues) {
   echo "Pushing data to influx"
   echo "$totalIssues"
-  sh """
-   curl -X POST \
-  'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' \
-  --data 'jira issues=6'
-  """
- // def influxUrl = "http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector"
-  
- // httpRequest httpMode: 'POST',
-//url: "${influxu=Url}",data: ""
+  //sh """
+   //curl -X POST \
+  //'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' \
+  //--data 'jira issues=6'
+  //"""
+  def influxUrl = "http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector"
+  def jiraData = "jira totalIssues=" + totalIssues
+  httpRequest httpMode: 'POST', url: "${influxu=Url}",data: "${jiraData}"
   echo "Check 1"
  
 }
