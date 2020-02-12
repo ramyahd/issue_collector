@@ -41,9 +41,9 @@ def create(){
 def pushToInflux(totalIssues) {
   echo "Pushing data to influx"
   echo "$totalIssues"
- // sh """
-  //curl -w '%{http_code}' -o statusCode.txt -X POST 'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' --data-binary 'jira issues=${totalIssues}'  
-//"""
+  sh """
+    curl -w '%{http_code}' -X POST 'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' --data-binary 'jira issues="${totalIssues}"'  
+  """
   echo "Check 1"
  
 }
