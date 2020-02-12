@@ -10,9 +10,10 @@ String projectName=a.replaceAll("\\[", "").replaceAll("\\]","");
 env.name = projectName
 
 
-sh """curl --request GET \
-  --url 'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/search?jql=project%3D'${projectName}'%20AND%20(status%3DDONE)' \
-  --header 'authorization: Basic cmlnOmRpZ2l0YWxyaWdAMTIz' \
-  --header 'cache-control: no-cache' | json_reformat
+sh """
+  curl -X GET \
+  'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/search?jql=project%3DEDN250%20AND%20(status%3DDONE)' \
+  -H 'authorization: jira_password' \
+  -H 'cache-control: no-cache' \
 """
 }
