@@ -33,22 +33,12 @@ def create(){
   
   def total = resultJson.total
   echo "=============================Total $total"
-  pushToInflux(total);
+  //pushToInflux(total);
+  
+   sh """
+    curl -X POST \
+    'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' \
+    --data 'jira issues=6'
+  """
  }
-
-@NonCPS
-def pushToInflux(totalIssues) {
-  echo "Pushing data to influx"
-  echo "$totalIssues"
-  //sh """
-   //curl -X POST \
-  //'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' \
-  //--data 'jira issues=6'
-  //"""
-  def influxUrl = "http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector"
-  def jiraData = "jira totalIssues=" + totalIssues
-  httpRequest httpMode: 'POST', url: "${influxUrl}",data: "${jiraData}"
-  echo "Check 1"
- 
-}
 
