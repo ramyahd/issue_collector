@@ -36,6 +36,7 @@ def create(){
   pushToInflux(total);
  }
 
+@NonCPS
 def pushToInflux(totalIssues) {
   echo "Pushing data to influx"
   echo "$totalIssues"
