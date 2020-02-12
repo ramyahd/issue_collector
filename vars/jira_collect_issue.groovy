@@ -41,7 +41,7 @@ def pushToInflux(totalIssues) {
   echo "Check 1"
   echo "$status"
   
-  if(status === "204" || status === "200") {
+  if(status == "204" || status == "200") {
     echo "ALl set to go"
   } else {
     echo "INFLUX DB push failed"
