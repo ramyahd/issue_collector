@@ -12,10 +12,10 @@ env.name = projectName
   withCredentials([usernamePassword(credentialsId: 'jira_password', passwordVariable: 'password', usernameVariable:'username')]){
 def done =  sh """
  
-  curl  -I -w "%{http_code}"  -X GET \
+  curl   -w "%{http_code}"  -X GET \
     -H -d -u $username:$password \
   'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/search?jql=project%3D${projectName}%20AND%20(status%3DDONE)' \
-  -H 'cache-control: no-cache' grep "HTTP/1.1"
+  -H 'cache-control: no-cache' | grep "HTTP/1.1"
  
     """
     echo "$done"
