@@ -29,7 +29,7 @@ def create(){
   def jsonSlurper = new JsonSlurper()
   //def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json"),"UTF-8"))
   
-  def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/output.json"))
+  def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json"))
   
   def total = resultJson.total
   echo "=============================Total $total"
@@ -42,17 +42,17 @@ def create(){
 def pushToInflux(totalIssues) {
   
   sh """
-    curl -w '%{http_code}' -s -i  -X POST \
+    curl -w '%{http_code}' -s -i -o test.txt -X POST \
       'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' \
       --data 'jira issues=${totalIssues}' > test2.txt
   """
  def response =new File('/var/lib/jenkins/workspace/' + JOB_NAME + '/test2.txt').text
   echo "======================== $response" 
   
-  if (response == "204" || response == "200") {
+ /* if(response == "204" || response == "200) {
       echo "DATA PUSHED TO INFLUX DB"
      } else {
      
        error("ERROR PUSHING DATA TO INFLUX")
-     }
+     }*/
 }
