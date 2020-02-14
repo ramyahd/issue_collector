@@ -15,7 +15,7 @@ env.name = projectName
 def done = sh """
      curl -X GET \
     -H -d -u $username:$password \
-     'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/search?jql=project%3DEDN250%20AND%20(status%3D'\''In%20Progress'\'')' \
+     'http://ec2-18-191-16-16.us-east-2.compute.amazonaws.com:8080/rest/api/2/search?jql=project%3D${projectName}%20AND%20(status%3D'\''In%20Progress'\'')' \
   -H 'cache-control: no-cache' > 'Taskdone.json'
   """
    
@@ -37,12 +37,12 @@ def create(){
 
  }
 
-def pushToInflux(totaltasks) {
+def pushToInflux(progresstasks) {
   
   sh """
     curl -w '%{http_code}' -s -i -o test.txt -X POST \
       'http://ec2-13-58-47-71.us-east-2.compute.amazonaws.com:8086/write?db=Collector' \
-      --data 'jira tasks_done=${totaltasks}' > test2.txt
+      --data 'jira tasks_done=${progresstasks}' > test2.txt
   """
  def response =new File('/var/lib/jenkins/workspace/' + JOB_NAME + '/test2.txt').text
   echo "======================== $response" 
