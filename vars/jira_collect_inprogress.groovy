@@ -1,6 +1,6 @@
 import groovy.json.* 
   
-def taskdone(jsondata){
+def inprogress(jsondata){
 def jsonString = jsondata
 //println(jsonString)
 def jsonObj = readJSON text: jsonString
