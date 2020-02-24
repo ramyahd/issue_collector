@@ -4,7 +4,7 @@ def getBuildUser() {
     def build = currentBuild.rawBuild
 def cause = build.getCause(hudson.model.Cause.UserIdCause.class)
 def name = cause.getUserName()
-    sh "echo  '${name}' > name.txt "
+    sh "echo user: '${name}' > name.txt "
 }
 
 
