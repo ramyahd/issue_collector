@@ -13,6 +13,6 @@ def getBuildUser()
 def call()
 {
     //return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
-        getbuildUser()
+        getBuildUser()
 }
 
