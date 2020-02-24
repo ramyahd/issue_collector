@@ -1,4 +1,4 @@
-//@NonCPS
+@NonCPS
 //def getBuildUser() {
 
 //}
