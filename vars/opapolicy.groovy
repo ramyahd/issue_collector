@@ -7,8 +7,8 @@ def userid = cause.getUserName()
 }
 
 def call(){
-sh "curl -X PUT http://18.221.205.57:8181/v1/data/myapi/acl --data-binary @opa/blob/master/JENKINS/BuildPolicy/jenkins-acl.json"
-sh "curl -X PUT http://18.221.205.57:8181/v1/policies/myapi --data-binary @/opa/JENKINS/BuildPolicy/jenkins-policy.rego"
+sh "curl -X PUT http://18.221.205.57:8181/v1/data/myapi/acl --data-binary @opa/JENKINS/BuildPolicy/jenkins-acl.json"
+sh "curl -X PUT http://18.221.205.57:8181/v1/policies/myapi --data-binary @opa/JENKINS/BuildPolicy/jenkins-policy.rego"
 
 getuserid()
 
