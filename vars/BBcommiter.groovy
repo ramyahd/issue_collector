@@ -41,7 +41,7 @@ for(i=0;i<ecount;i++)
 	
 	
 	
-	 ArrayList<List<String,String>> retList = new ArrayList<>();
+	/* ArrayList<List<String,String>> retList = new ArrayList<>();
     int startIndex = -1;
     string currentSelection;
 
@@ -61,9 +61,9 @@ for(i=0;i<ecount;i++)
             continue;
         }
     }
-    return retList;
-//println(JSON.size())
-//println(JSON)
+    return retList;*/
+println(JSON.size())
+println(JSON)
 //println JSON.findAll { map.id[0] == 'a3042a6b0427ab4b049f27dde71ef3f5340d1f57' }
 //def resultJson = jsonSlurper.parse(JSON)
  /*if (JSON.author[0].name==jsonObj.config.emails.email[2])
