@@ -40,6 +40,7 @@ for(i=0;i<ecount;i++)
 		  echo " It is having the string you can make the array out of it "
 //Do whatever you want here
 		}
+	  }
     
     }
 //JCOPY[i]=JSON[i]	  
