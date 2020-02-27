@@ -29,14 +29,7 @@ for(i=0;i<ecount;i++)
   {
    if(jsonObj.config.emails.email[i]==resultJson.values.author[j].emailAddress)
    {
-	   
-	for(String JSON : myList) {
-    	if(JSON.config.emails.email() != null && JSON.config.emails.email().equals("resultJson.values.author[j].emailAddress")) {
-        //Process data do whatever you want
-        println("Found it!");
-     }
-}
-	JSON.add(JsonOutput.toJson(resultJson.values[j]))
+	   JSON.add(JsonOutput.toJson(resultJson.values[j]))
 	 //JSON[i]= resultJson.values[j]
 	 // JSON[i].addAll(JCOPY[i])
 
