@@ -38,8 +38,32 @@ for(i=0;i<ecount;i++)
 //JCOPY[i]=JSON[i]	  
       }
 }
-println(JSON.size())
-println(JSON)
+	
+	
+	
+	 ArrayList<Pair<string,string>> retList = new ArrayList<>();
+    int startIndex = -1;
+    string currentSelection;
+
+    for (int i = 0; i < JSON.size(); i++) {
+        if (startIndex < 0) {
+            startIndex = i;
+            currentSelection = JSON.author.emailAddress;
+
+            continue;
+        }
+
+        if (currentSelection != JSON.auhtor(i).emailAddress) {
+            retList.add(new Pair<>(startIndex, i - 1));
+            startIndex = i;
+            currentSelection = JSON.author(i).emailAddress;
+
+            continue;
+        }
+    }
+    return retList;
+//println(JSON.size())
+//println(JSON)
 //println JSON.findAll { map.id[0] == 'a3042a6b0427ab4b049f27dde71ef3f5340d1f57' }
 //def resultJson = jsonSlurper.parse(JSON)
  /*if (JSON.author[0].name==jsonObj.config.emails.email[2])
