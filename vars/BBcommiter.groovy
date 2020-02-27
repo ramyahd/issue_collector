@@ -41,7 +41,7 @@ for(i=0;i<ecount;i++)
 	
 	
 	
-	 ArrayList<Pair<String,String>> retList = new ArrayList<>();
+	 ArrayList<List<String,String>> retList = new ArrayList<>();
     int startIndex = -1;
     string currentSelection;
 
@@ -54,7 +54,7 @@ for(i=0;i<ecount;i++)
         }
 
         if (currentSelection != JSON.auhtor(i).emailAddress) {
-            retList.add(new Pair<>(startIndex, i - 1));
+            retList.add(new List<>(startIndex, i - 1));
             startIndex = i;
             currentSelection = JSON.author(i).emailAddress;
 
