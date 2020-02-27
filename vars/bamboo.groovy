@@ -1,73 +1,50 @@
 import groovy.json.*
- import groovy.json.JsonOutput
 
-
-def call(JSON,IP)
-{
-def jsonString = JSON
+def call(jsondata){
+def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
-def mailcount = jsonObj.config.emails.email.size()
-
- sh """ curl -X GET \
-  'http://18.220.143.53:8085/rest/api/latest/result/LAT-WEB.json?max-result=50&expand=results.result.artifacts&expand=changes.change.files&start-index=0' \
-  -H 'authorization: Basic cmlnOnJpZ2FEYXB0QGRldk9wcw==' \
-  -H 'cache-control: no-cache' \
-  -H 'postman-token: 50b866a3-885a-2d59-ea9d-b76fb8b13a16'  -o output.json """
-
-//  sh "curl -G -X GET -s -u rig:rigaDapt@devOps ${IP}/rest/api/latest/result/LAT-WEB.json?max-result=50%26expand=results.result.artifacts%26expand=changes.change.files%26start-index=0  -o output.json"
+String a=jsonObj.scm.projects.project.repositories.repository.repo_name
+String repoName=a.replaceAll("\\[", "").replaceAll("\\]","");
+String b=jsonObj.scm.projects.project.project_key 
+String Key=b.replaceAll("\\[", "").replaceAll("\\]","");
+int ecount = jsonObj.config.emails.email.size()
+println("No of users "+ ecount)
+println(Key)
+println(repoName)
+// Date date = new Date() 
+ withCredentials([usernamePassword(credentialsId: 'bitbucket_cred', passwordVariable: 'pass', usernameVariable: 'userId')]) {
+  sh "curl -X GET  -H -d  -u $userId:$pass http://18.224.68.30:7990/rest/api/1.0/projects/'${Key}'/repos/'${repoName}'/commits -o output.json"
+ } 
 def jsonSlurper = new JsonSlurper()
-def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/output.json"),"UTF-8"))
-def resultJson = jsonSlurper.parse(reader)
-//def state=resultJson.results.result[0].buildCompletedDate
-  //println(state)
- def cns=0
- def cnf=0
- 
-    List<String> SUCCESS = new ArrayList<String>();
-    List<String> FAILURE = new ArrayList<String>();
- 
-    HashMap<String,Integer> var  = new HashMap<>();
-    List<String> USER = new ArrayList<String>();
- 
+def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/output.json"))
+def total = resultJson.size
+ echo "Total no.of commits in ${repoName} $total"
+//def commiter=1
+List<String> JSON = new ArrayList<String>();
+//List<String> JCOPY = new ArrayList<String>();
 
-println(mailcount)
-   for(j=0;j<mailcount;j++)
-   {
-    
-  for(i=0;i<50;i++)
-  {
- 
-   def date=resultJson.results.result[i].buildCompletedDate
-   //println(date)
-   def state=resultJson.results.result[i].buildState
-  // println(state)
-  
- 
-   def email=jsonObj.config.emails.email[j]
-    //println(email)
-   if(resultJson.results.result[i].buildReason.contains(email) && state.equals("Successful"))
-   {
- 
-   USER.add(JsonOutput.toJson(resultJson.results.result[i]))
-    //map.put(JsonOutput.toJson(resultJson.results.result[i]),"USER"+j)
-   
-    
-   }
- def USER=USER+i
-    println(USER)
-   }
-  }
- //println(cnt)
-// println(Success)
-  // USER.get(0).add(JsonOutput.toJson(resultJson.results.result[i]))
-
-//println(USER)
- 
- /*for(i=0;i<mailcount;i++)
+for(i=0;i<ecount;i++)
  {
-   var.put("USER[i]"+i)
- }
-println(var)*/
- 
- //echo "$cnt"
+  for(j=0;j<total;j++)
+  {
+   if(jsonObj.config.emails.email[i]==resultJson.values.author[j].emailAddress)
+   {
+	JSON.add(JsonOutput.toJson(resultJson.values[j]))
+	 //JSON[i]= resultJson.values[j]
+	 // JSON[i].addAll(JCOPY[i])
+    
+    }
+//JCOPY[i]=JSON[i]	  
+      }
 }
+println(JSON.size())
+println(JSON[0])
+println JSON.findAll { map.id[0] == 'a3042a6b0427ab4b049f27dde71ef3f5340d1f57' }
+//def resultJson = jsonSlurper.parse(JSON)
+ /*if (JSON.author[0].name==jsonObj.config.emails.email[2])
+	{
+		println("GOT IT")
+	}*/
+
+}
+
