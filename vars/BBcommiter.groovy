@@ -32,6 +32,14 @@ for(i=0;i<ecount;i++)
 	JSON.add(JsonOutput.toJson(resultJson.values[j]))
 	 //JSON[i]= resultJson.values[j]
 	 // JSON[i].addAll(JCOPY[i])
+	  ArrayList<String> searchList = new ArrayList<String>();
+	  String search = "resultJson.values.author[j].emailAddress";
+	  int searchListLength = searchList.size();
+	  for (int i = 0; i < searchListLength; i++) {
+	  if (searchList.get(i).contains(search)) {
+		  echo " It is having the string you can make the array out of it "
+//Do whatever you want here
+		}
     
     }
 //JCOPY[i]=JSON[i]	  
