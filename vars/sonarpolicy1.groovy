@@ -7,7 +7,7 @@ def userid = cause.getUserName()
 }
 
 def call(){
-sh "curl -X PUT http://18.221.205.57:8181/v1/data/sonar/gate --data-binary @opa/SONAR/BuildPolicy/sonargate.json"
+sh "curl -X PUT http://18.221.205.57:8181/v1/data/sonar/acl --data-binary @opa/SONAR/BuildPolicy/sonargate.json"
 sh "curl -X PUT http://18.221.205.57:8181/v1/policies/sonar --data-binary @opa/SONAR/BuildPolicy/sonar-policy.rego"
 
 getuserid()
