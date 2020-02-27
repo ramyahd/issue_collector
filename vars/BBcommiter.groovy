@@ -41,7 +41,7 @@ for(i=0;i<ecount;i++)
 	
 	
 	
-	 ArrayList<Pair<string,string>> retList = new ArrayList<>();
+	 ArrayList<Pair<String,String>> retList = new ArrayList<>();
     int startIndex = -1;
     string currentSelection;
 
