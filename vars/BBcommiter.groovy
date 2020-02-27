@@ -30,16 +30,12 @@ for(i=0;i<ecount;i++)
    if(jsonObj.config.emails.email[i]==resultJson.values.author[j].emailAddress)
    {
 	   
-	   
-	  ArrayList<String> searchList = new ArrayList<String>();
-	  String search = "resultJson.values.author[j].emailAddress";
-	  int searchListLength = searchList.size();
-	  for (int i = 0; i < searchListLength; i++) {
-	  if (searchList.get(i).contains(search)) {
-		  println " It is having the string you can make the array out of it "
-//Do whatever you want here
-		}
-	  }
+	for(String JSON : myList) {
+    	if(JSON.config.emails.email() != null && JSON.config.emails.email().equals("resultJson.values.author[j].emailAddress")) {
+        //Process data do whatever you want
+        println("Found it!");
+     }
+}
 	JSON.add(JsonOutput.toJson(resultJson.values[j]))
 	 //JSON[i]= resultJson.values[j]
 	 // JSON[i].addAll(JCOPY[i])
