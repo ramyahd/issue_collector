@@ -37,6 +37,11 @@ for(i=0;i<ecount;i++)
     }
 //JCOPY[i]=JSON[i]	  
       }
+	 
+	 println(jsonObj.config.emails.email[i])
+	 JCOPY[i]=(JSON)
+	 println(JCOPY[0])
+	 JSON.clear()
 }
 	
 	
@@ -69,7 +74,7 @@ for(i=0;i<ecount;i++)
 			echo(l);
 	
 		}*/
-	int[] foo;
+	/*int[] foo;
 	ArrayList<Object> JCOPY = new ArrayList<Object>(JSON);
 	
 	for (i = 0; i < JSON.size(); i++) 
@@ -85,7 +90,7 @@ for(i=0;i<ecount;i++)
 				echo "working on it"
 			   }
 		}
-	}
+	}*/
 			   
 			   println(foo);
 			  /* Iterator i = JCOPY.iterator();
