@@ -64,7 +64,7 @@ for(i=0;i<ecount;i++)
     
     */
 	
-		for (int i = 0; i < JSON.length; i++) {
+		for (int i = 0; i < JSON.size(); i++) {
 			List<String> l = JSON[i];
 			echo(l);
 	
