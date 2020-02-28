@@ -74,7 +74,7 @@ for(i=0;i<ecount;i++)
 	
 	for (i = 0; i < JSON.size(); i++) 
 	{
-		for( j=1:j<JCOPY.size();j++)
+		for( j=1;j < JCOPY.size();j++)
 		{
 			if(JSON.id[i] == JCOPY.id[j]
 			   {
