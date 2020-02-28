@@ -34,10 +34,8 @@ for(i=0;i<ecount;i++)
 	 // JSON[i].addAll(JCOPY[i])
 
     }
-//JCOPY[i]=JSON[i]
- 
-      }
-	 if(j==0)
+   }
+	 if(i==0)
 	 {
 		continue
 	 }
