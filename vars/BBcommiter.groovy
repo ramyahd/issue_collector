@@ -61,12 +61,18 @@ for(i=0;i<ecount;i++)
             continue;
         }
     }
-    return retList;*/
+    
+    */
 	
-	 Iterator i = JSON.iterator();
+		for (int i = 0; i < JSON.length; i++) {
+			List<String> l = JSON[i];
+			echo(l);
+	
+	
+	/* Iterator i = JSON.iterator();
 	  while (i.hasNext()) {
          	println(i.next());
-      }
+      }*/
 	//println(JSON.size())
 	//println(JSON)
 //println JSON.findAll { map.id[0] == 'a3042a6b0427ab4b049f27dde71ef3f5340d1f57' }
