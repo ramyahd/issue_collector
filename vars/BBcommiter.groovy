@@ -69,11 +69,29 @@ for(i=0;i<ecount;i++)
 			echo(l);
 	
 		}*/
-ArrayList<Object> JCOPY = new ArrayList<Object>(JSON);
-	Iterator i = JCOPY.iterator();
+	int[] foo;
+	ArrayList<Object> JCOPY = new ArrayList<Object>(JSON);
+	
+	for (int i = 0; i < JSON.size(); i++) 
+	{
+		for(int j=1:j<JCOPY.size();j++)
+		{
+			if(JSON.id[i] == JCOPY.id[j]
+			   {
+				    foo[i] += JSON[i]
+			   }
+			   else
+			   {
+				echo "working on it"
+			   }
+		}
+	}
+			   
+			   println(foo);
+			  /* Iterator i = JCOPY.iterator();
 	  while (i.hasNext()) {
          	println(i.next());
-      }
+      }*/
 	//println(JSON.size())
 	//println(JSON)
 //println JSON.findAll { map.id[0] == 'a3042a6b0427ab4b049f27dde71ef3f5340d1f57' }
