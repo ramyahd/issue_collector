@@ -21,7 +21,7 @@ def total = resultJson.size
  echo "Total no.of commits in ${repoName} $total"
 //def commiter=1
 List<String> JSON = new ArrayList<String>();
-List<String> JCOPY = new ArrayList<String>();
+//List<String> JCOPY = new ArrayList<String>();
 
 for(i=0;i<ecount;i++)
  {
@@ -69,7 +69,7 @@ for(i=0;i<ecount;i++)
 			echo(l);
 	
 		}*/
-	 Collections.copy(JSON,JCOPY);
+ArrayList<Object> JCOPY = new ArrayList<Object>(JSON);
 	Iterator i = JCOPY.iterator();
 	  while (i.hasNext()) {
          	println(i.next());
