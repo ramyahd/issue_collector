@@ -69,7 +69,7 @@ for(i=0;i<ecount;i++)
 			echo(l);
 	
 		}*/
-	 Collections.copy(JCOPY,JSON);
+	 Collections.copy(JSON,JCOPY);
 	Iterator i = JCOPY.iterator();
 	  while (i.hasNext()) {
          	println(i.next());
