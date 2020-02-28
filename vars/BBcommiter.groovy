@@ -32,7 +32,7 @@ for(i=0;i<ecount;i++)
 	   JSON.add(JsonOutput.toJson(resultJson.values[j]))
 	 //JSON[i]= resultJson.values[j]
 	 // JSON[i].addAll(JCOPY[i])
-
+		println(JSON)
     
     }
 //JCOPY[i]=JSON[i]	
@@ -41,7 +41,7 @@ for(i=0;i<ecount;i++)
 	 
 	 println(jsonObj.config.emails.email[i])
 	 JCOPY[i]=(JSON)
-	 println(JSON)
+	// println(JSON)
 	 //println(JCOPY[0])
 	 JSON.clear()
 	 
