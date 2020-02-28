@@ -76,7 +76,7 @@ for(i=0;i<ecount;i++)
 	{
 		for( j=1;j < JCOPY.size();j++)
 		{
-			if(JSON.values[i].id == JCOPY.values[j].id)
+			if(JSON[i] == JCOPY.values[j].id)
 			   {
 				    foo[i] += JSON[i]
 			   }
