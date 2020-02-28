@@ -72,9 +72,9 @@ for(i=0;i<ecount;i++)
 	int[] foo;
 	ArrayList<Object> JCOPY = new ArrayList<Object>(JSON);
 	
-	for (int i = 0; i < JSON.size(); i++) 
+	for (i = 0; i < JSON.size(); i++) 
 	{
-		for(int j=1:j<JCOPY.size();j++)
+		for( j=1:j<JCOPY.size();j++)
 		{
 			if(JSON.id[i] == JCOPY.id[j]
 			   {
