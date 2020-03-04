@@ -2,7 +2,7 @@
 //getting the id of user who started the build.
 
 def call(){
-sh "curl -X PUT http://18.221.205.57:8181/v1/data/myapi/acl --data-binary @opa/PIPELINE/BuildPolicy/acl.json"
+sh "curl -X PUT http://18.221.205.57:8181/v1/data/myapi/acl --data-binary @opa/PIPELINE/BuildPolicy/pipeline-acl.json"
 sh "curl -X PUT http://18.221.205.57:8181/v1/policies/myapi --data-binary @opa/PIPELINE/BuildPolicy/pipeline-policy.rego"
 
 
