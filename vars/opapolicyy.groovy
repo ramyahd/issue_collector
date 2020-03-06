@@ -12,7 +12,7 @@ sh """
   -d '{"servers": {"branch_name": "master","name": "Alice"}}'
   
   """
-println(response)
+//println(response)
 /*if ( response == "{\"result\":true}" ){
 println("You can build a job")
 
