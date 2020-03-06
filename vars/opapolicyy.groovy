@@ -4,13 +4,14 @@ sh "curl -X PUT http://18.221.205.57:8181/v1/data/metrics --data-binary @opa/PIP
 sh "curl -X PUT http://18.221.205.57:8181/v1/policies/metrics --data-binary @opa/PIPELINE/BuildPolicy/pipeline-policy.rego"
 
   
-  sh
-  """
-  curl --location --request POST 'http://18.221.205.57:8181/v1/data/metrics/policy/result' \
-  --header 'Content-Type: application/json' \
-  --data-raw '{"servers": {"branch_name": "master","name": "Alice"}}' | json_reformat
+sh "
+  curl -X POST \
+  http://18.221.205.57:8181/v1/data/metrics/policy/result \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -d '{"servers": {"branch_name": "master","name": "Alice"}}'
   
-  """
+  "
 println(response)
 /*if ( response == "{\"result\":true}" ){
 println("You can build a job")
