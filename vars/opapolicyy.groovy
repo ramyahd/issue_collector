@@ -1,12 +1,12 @@
 
 def call(){
-sh "curl -X PUT http://18.221.205.57:8181/v1/data/metrics --data-binary @opa/PIPELINE/BuildPolicy/pipeline-acl.json"
-sh "curl -X PUT http://18.221.205.57:8181/v1/policies/metrics --data-binary @opa/PIPELINE/BuildPolicy/pipeline-policy.rego"
+sh "curl -X PUT http://18.221.205.57:8181/v1/data/myapi/acl --data-binary @opa/PIPELINE/BuildPolicy/pipeline-acl.json"
+sh "curl -X PUT http://18.221.205.57:8181/v1/policies/myapi --data-binary @opa/PIPELINE/BuildPolicy/pipeline-policy.rego"
 
   
 sh """
   curl -X POST \
-  http://18.221.205.57:8181/v1/data/metrics/policy/result \
+  http://18.221.205.57:8181/v1/myapi/policy/result \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -d '{"servers": {"branch_name": "master","name": "Alice"}}'
