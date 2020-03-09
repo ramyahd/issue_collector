@@ -5,7 +5,7 @@ sh "curl -X PUT http://18.221.205.57:8181/v1/policies/myapi1 --data-binary @opa/
 
   
 sh """
-  curl -X POST \
+  curl -X POST -s \
   http://18.221.205.57:8181/v1/data/myapi1/policy/result \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
