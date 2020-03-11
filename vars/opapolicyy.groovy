@@ -53,10 +53,10 @@ error("Build failed beacuse you do not have permission to trigger a build")
 }
 }*/
 sh """
-  curl -X POST -s \
+  curl -X POST \
   http://18.221.205.57:8181/v1/data/myapi1/policy/foo \
-  -H 'cache-control: no-cache' \
-  -H 'content-type: application/json' \
+  //-H 'cache-control: no-cache' \
+  //-H 'content-type: application/json' \
   -d '{ 
     "servers": [
         {
