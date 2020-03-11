@@ -1,6 +1,6 @@
 
 def call(){
-//sh "curl -X PUT http://18.221.205.57:8181/v1/data/jenkinss/acl --data-binary @opa/PIPELINE/BuildPolicy/pipeline-acl.json"
+sh "curl -X PUT http://18.221.205.57:8181/v1/data/jenkinss/acl --data-binary @opa/PIPELINE/BuildPolicy/pipeline-acl.json"
 sh "curl -X PUT http://18.221.205.57:8181/v1/policies/jenkinss --data-binary @opa/PIPELINE/BuildPolicy/pipeline-policy.rego"
 
 
