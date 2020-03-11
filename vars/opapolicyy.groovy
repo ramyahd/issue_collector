@@ -55,7 +55,7 @@ error("Build failed beacuse you do not have permission to trigger a build")
 sh """
   curl -X POST \
   http://18.221.205.57:8181/v1/data/myapi1/policy/foo \
-  --data-binary '{input : { {"branch_name": "master","name": "Alice"}}' | json_reformat
+  --data-binary '{input :  {"branch_name": "master","name": "Alice"}}' | json_reformat
   
   """
 //println(response)
