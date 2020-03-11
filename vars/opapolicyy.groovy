@@ -44,15 +44,14 @@ sh "curl -X PUT http://18.221.205.57:8181/v1/policies/jenkinss --data-binary @op
         }
     ] }'""", returnStdout: true)
 println(response)
-/*if ( response == "{\"result\":true}" ){
+if ( response == "{\"result\":true}" ){
 println("You can build a job")
 
 }
 else{
 error("Build failed beacuse you do not have permission to trigger a build")
-}*/
 }
-*/
+}*/
 sh """
   curl -X POST -s \
   http://18.221.205.57:8181/v1/data/myapi1/policy/foo \
@@ -107,4 +106,5 @@ println("You can build a job")
 else{
 error("Build failed beacuse you do not have permission to trigger a build")
 }*/
+}
 
