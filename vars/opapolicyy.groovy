@@ -1,11 +1,11 @@
 
 def call(){
 //sh "curl -X PUT http://18.221.205.57:8181/v1/data/myapi1/acl --data-binary @opa/PIPELINE/BuildPolicy/pipeline-acl.json"
-sh "curl -X PUT http://18.221.205.57:8181/v1/policies/myapi1 --data-binary @opa/PIPELINE/BuildPolicy/pipeline-policy.rego"
+sh "curl -X PUT http://18.221.205.57:8181/v1/policies/jenkinss --data-binary @opa/PIPELINE/BuildPolicy/pipeline-policy.rego"
 
 
   
-String response = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/myapi1/policy/foo' --header 'Content-Type: application/json' --data-raw '{ "servers": [
+String response = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/jenkinss/policy/foo' --header 'Content-Type: application/json' --data-raw '{ "servers": [
         {
             "branch_name": "master",
             "metrics": [
