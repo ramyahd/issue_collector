@@ -9,7 +9,7 @@ sh """
   http://18.221.205.57:8181/v1/data/myapi1/policy/foo \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
-  -d '{ input {
+  -d '{ 
     "servers": [
         {
             "branch_name": "master",
@@ -47,7 +47,7 @@ sh """
             ],
             "name": "Bob"
         }
-    ]}}'
+    ]}'
   
   """
 //println(response)
