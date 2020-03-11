@@ -42,7 +42,7 @@ String response = sh(script:"""curl --location --request POST 'http://18.221.205
             ],
             "name": "Bob"
         }
-    ]} }'""", returnStdout: true)
+    ] }'""", returnStdout: true)
 println(response)
 if ( response == "{\"result\":true}" ){
 println("You can build a job")
