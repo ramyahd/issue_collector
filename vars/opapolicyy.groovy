@@ -44,13 +44,13 @@ String response = sh(script:"""curl --location --request POST 'http://18.221.205
         }
     ] }'""", returnStdout: true)
 println(response)
-if ( response == "{\"result\":true}" ){
+/*if ( response == "{\"result\":true}" ){
 println("You can build a job")
 
 }
 else{
 error("Build failed beacuse you do not have permission to trigger a build")
-}
+}*/
 }
 
 /*sh """
@@ -99,7 +99,7 @@ error("Build failed beacuse you do not have permission to trigger a build")
     ]}'
   
   """*/
-println(response)
+//println(response)
 /*if ( response == "{\"result\":true}" ){
 println("You can build a job")
 
@@ -107,4 +107,4 @@ println("You can build a job")
 else{
 error("Build failed beacuse you do not have permission to trigger a build")
 }*/
-}
+
