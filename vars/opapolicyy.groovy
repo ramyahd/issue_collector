@@ -5,7 +5,7 @@ sh "curl -X PUT http://18.221.205.57:8181/v1/policies/jenkinss --data-binary @op
 
 
   
-String response = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/jenkinss/policy/foo' --header 'Content-Type: application/json' --data-raw '{ "servers": [
+/*String response = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/jenkinss/policy/foo' --header 'Content-Type: application/json' --data-raw '{ "servers": [
         {
             "branch_name": "master",
             "metrics": [
@@ -52,8 +52,8 @@ else{
 error("Build failed beacuse you do not have permission to trigger a build")
 }*/
 }
-
-/*sh """
+*/
+sh """
   curl -X POST -s \
   http://18.221.205.57:8181/v1/data/myapi1/policy/foo \
   -H 'cache-control: no-cache' \
@@ -96,9 +96,9 @@ error("Build failed beacuse you do not have permission to trigger a build")
             ],
             "name": "Bob"
         }
-    ]}'
+    ]}' | json_reformat
   
-  """*/
+  """
 //println(response)
 /*if ( response == "{\"result\":true}" ){
 println("You can build a job")
