@@ -1,7 +1,7 @@
 
 def call(){
-sh "curl -X PUT http://18.221.205.57:8181/v1/data/jenkinss/acl --data-binary @opa/PIPELINE/BuildPolicy/pipeline-acl.json"
-sh "curl -X PUT http://18.221.205.57:8181/v1/policies/jenkinss --data-binary @opa/PIPELINE/BuildPolicy/pipeline-policy.rego"
+sh "curl -X PUT http://13.234.225.51:8181/v1/data/jenkinss/acl --data-binary @opa/PIPELINE/BuildPolicy/pipeline-acl.json"
+sh "curl -X PUT http://13.234.225.51:8181/v1/policies/jenkinss --data-binary @opa/PIPELINE/BuildPolicy/pipeline-policy.rego"
 
 
   
@@ -54,7 +54,7 @@ error("Build failed beacuse you do not have permission to trigger a build")
 }*/
 sh """
   curl -X POST \
-  http://18.221.205.57:8181/v1/data/jenkinss/policy/foo \
+  http://13.234.225.51:8181/v1/data/jenkinss/policy/foo \
   --data-binary '{ "input" : { "branch_name": "master","name": "Alice" } }' | json_reformat
   
   """
