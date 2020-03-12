@@ -4,7 +4,7 @@ sh "curl -X PUT http://13.234.225.51:8181/v1/data/jenkinss/acl --data-binary @op
 sh "curl -X PUT http://13.234.225.51:8181/v1/policies/jenkinss --data-binary @opa/PIPELINE/BuildPolicy/pipeline-policy.rego"
 
 String response = sh(script:"""curl --location --request POST 'http://13.234.225.51:8181/v1/data/jenkinss/policy/foo' --header 'Content-Type: application/json' --data-raw '{ "input" : { "branch_name": "master","name": "Alice" } }'""", returnStdout: true)
-prinltn(response)
+println(response)
 /*sh """
   curl -X POST \
   http://13.234.225.51:8181/v1/data/jenkinss/policy/foo \
