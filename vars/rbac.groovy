@@ -4,7 +4,7 @@ sh "curl -X PUT http://18.221.205.57:8181/v1/policies/rbac --data-binary @open-p
 //String response = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/commit/policy/foo' --header 'Content-Type: application/json' --data-raw '{"input":{"name":"'${committername}'","branch_name":"'${branch}'"}}'""", returnStdout: true)
 //println(response)
   
-String response1 = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/rbac/policy/allow' --header 'Content-Type: application/json' --data-raw '{ "input" : { "user": "alice","path": "compute" , "method":"GET" } }'""", returnStdout: true)
+String response1 = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/rbac/policy/allow' --header 'Content-Type: application/json' --data-raw '{ "input" : { "user": "alice","path": "/compute/" , "method":"GET" } }'""", returnStdout: true)
 println(response1)
 }
 
