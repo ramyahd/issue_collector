@@ -14,7 +14,7 @@ getuserid()
 
 println(userid)
 
-
+sh "curl -X POST http://18.221.205.57:8181/v1/data/myapi/policy/whocan --header 'Content-Type: application/json' --data-binary '{ "input": { "access": "build" } }'" 
 String response = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/myapi/policy/allow' --header 'Content-Type: application/json' --data-raw '{ "input": { "user": "'${userid}'", "access": "build" } }'""", returnStdout: true)
 println(response)
 if ( response == "{\"result\":true}" ){
