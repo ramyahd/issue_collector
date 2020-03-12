@@ -7,6 +7,6 @@ sh "curl -X PUT http://18.221.205.57:8181/v1/policies/sonarrbac --data-binary @o
 String response1 = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/sonarrbac/policy/allow' --header 'Content-Type: application/json' --data-raw '{ "input" : { "user": "alice","path": "master"} }'""", returnStdout: true)
 println(response1)
   
-//String response2 = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/sonarrbac/policy/result' --header 'Content-Type: application/json' --data-raw '{ "input" : { "user": "alice","path": "master"} }'""", returnStdout: true)
-//println(response2)  
+String response2 = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/sonarrbac/policy/result' --header 'Content-Type: application/json' --data-raw '{ "input" : { "user": "alice","path": "master"} }'""", returnStdout: true)
+println(response2)  
 }
