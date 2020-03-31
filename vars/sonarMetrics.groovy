@@ -12,10 +12,10 @@ create(){
   File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/metrics.json")
   file.write(jsonBuilder.toPrettyString())
   return jsonBuilder
-  def resultJson1 = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/metrics.json"))
+ // def resultJson1 = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/metrics.json"))
   
-  def total = resultJson1.result
-  echo "=============================Total $total"
+  //def total = resultJson1.result
+  //echo "=============================Total $total"
 }
 
 
