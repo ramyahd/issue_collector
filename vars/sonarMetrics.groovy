@@ -14,8 +14,6 @@ create(){
   return jsonBuilder
 }
 
-
-
 def call(jsondata){
 def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
