@@ -12,7 +12,27 @@ create(){
   File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/metrics.json")
   file.write(jsonBuilder.toPrettyString())
   return jsonBuilder
+  def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/metrics.json"))
+  
+  def total = resultJson.result
+  echo "=============================Total $total"
 }
+
+
+
+//def create1(){
+  //def jsonSlurper = new JsonSlurper()
+  //def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json"),"UTF-8"))
+  
+  //def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/Taskdone.json"))
+  
+  //def total = resultJson.total
+  //echo "=============================Total $total"
+  //pushToInflux(total);
+  
+
+ //}
+
 
 def call(jsondata){
 def jsonString = jsondata
