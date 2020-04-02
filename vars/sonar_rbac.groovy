@@ -1,7 +1,7 @@
 def call(){
-sh "curl -X PUT http://18.221.205.57:8181/v1/data/sonarrbac/acl --data-binary @open-policy-agent/SONARRBAC/ROLE_BASED/sonar-acl.json"
-sh "curl -X PUT http://18.221.205.57:8181/v1/policies/sonarrbac --data-binary @open-policy-agent/SONARRBAC/ROLE_BASED/sonar-rbac.rego"
-String response = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/sonarrbac/policy' --header 'Content-Type: application/json' --data-raw '{"input": { "user": "alice","branch": "master", "auth" : "ramya"}}'""", returnStdout: true)
+sh "curl -X PUT http://18.224.228.236:8181/v1/data/sonarrbac/acl --data-binary @open-policy-agent/SONARRBAC/ROLE_BASED/sonar-acl.json"
+sh "curl -X PUT http://18.224.228.236:8181/v1/policies/sonarrbac --data-binary @open-policy-agent/SONARRBAC/ROLE_BASED/sonar-rbac.rego"
+String response = sh(script:"""curl --location --request POST 'http://18.224.228.236:8181/v1/data/sonarrbac/policy' --header 'Content-Type: application/json' --data-raw '{"input": { "user": "alice","branch": "master", "auth" : "ramya"}}'""", returnStdout: true)
 println(response)
 
  /*ring response = sh(script:"""curl --location --request POST 'http://18.221.205.57:8181/v1/data/sonarrbac/policy/allow' --header 'Content-Type: application/json' --data-raw '{ "input" : {"user": "alice","branch": "master", "auth" : "ramya"} }'""", returnStdout: true)
