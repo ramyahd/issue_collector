@@ -22,7 +22,14 @@ def create1()
   
   def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/metrics.json"))
   
-  def total = resultJson.sonar.metrics.component.measures.metric[vulnerabilites]
+  def total = resultJson.sonar.metrics.component.measures
+  for(int i=0;i<resultJson.size;i++)
+  {
+    if total[i] == "Vulnerabilities"
+    print total[i]
+    else
+      break
+  }
   echo "=============================Total $total"
   }
 
