@@ -14,6 +14,18 @@ create(){
   return jsonBuilder
 }
 
+def create1()
+{
+  def create(){
+  def jsonSlurper = new JsonSlurper()
+  //def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json"),"UTF-8"))
+  
+  def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/metrics.json"))
+  
+  def total = resultJson.metrics
+  echo "=============================Total $total"
+  }
+
 def call(jsondata){
 def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
@@ -27,4 +39,5 @@ sh "curl -u ${user}:${pass} -X GET 'http://ec2-3-133-107-212.us-east-2.compute.a
   echo 'metrics collected'
 }
     create()
+    create1()
 }
