@@ -17,7 +17,7 @@ println("You can build a job")
 
 }
 else{
-error("Build failed beacuse you do not have permission to trigger a build")
+error("Build fail beacuse you do not have permission to trigger a build")
 }*/
 }
 
