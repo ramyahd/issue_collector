@@ -27,12 +27,11 @@ def create1()
   {
     if(total[i] == "Vulnerabilities")
     {
-    print total[i]
+    println total[i]
     }
     else
     {
-      break
-  }
+      total[i]
   }
   echo "=============================Total $total"
   }
