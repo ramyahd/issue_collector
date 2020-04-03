@@ -22,7 +22,7 @@ def create1()
   
   def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/metrics.json"))
   
-  def total = resultJson.sonar.metrics.component.measures
+  def total = resultJson.sonar.metrics.component.measures.metric[vulnerabilites]
   echo "=============================Total $total"
   }
 
