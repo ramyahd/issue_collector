@@ -33,7 +33,8 @@ def create1()
     {
       total[i]
   }
-  echo "=============================Total $total"
+  }
+ // echo "=============================Total $total"
   }
 
 def call(jsondata){
