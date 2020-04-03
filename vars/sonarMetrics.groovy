@@ -25,10 +25,14 @@ def create1()
   def total = resultJson.sonar.metrics.component.measures
   for(int i=0;i<resultJson.size;i++)
   {
-    if total[i] == "Vulnerabilities"
+    if(total[i] == "Vulnerabilities")
+    {
     print total[i]
+    }
     else
+    {
       break
+  }
   }
   echo "=============================Total $total"
   }
