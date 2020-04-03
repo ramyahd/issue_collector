@@ -16,7 +16,7 @@ create(){
 
 def create1()
 {
-  def create(){
+  
   def jsonSlurper = new JsonSlurper()
   //def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json"),"UTF-8"))
   
