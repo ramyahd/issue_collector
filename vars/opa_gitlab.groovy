@@ -22,10 +22,10 @@ println(resultJson.result.allow)
 
   
 if ( resultJson.result.allow == "true"){    
-println("You can build a job")
+println("Authorization is successfull")
 
 }
 else{
-error("Build failed beacuse you do not have permission to trigger a build")
+error("Authorization failed and you cannot move to next stage")
 }
 }
