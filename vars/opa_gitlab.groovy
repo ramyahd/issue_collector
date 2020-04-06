@@ -22,10 +22,9 @@ def resultJson= readJSON text: response
 if ( resultJson.result.allow == "true")
 {    
 println("Authorization is successfull")
-exit
 }
 else
 {
-error("Authorization failed and you cannot move to next stage")
+println("Authorization failed and you cannot move to next stage")
 }*/
 }
