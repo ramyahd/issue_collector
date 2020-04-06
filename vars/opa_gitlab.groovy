@@ -5,3 +5,5 @@ sh "curl -X PUT http://18.224.228.236:8181/v1/policies/gitlab --data-binary @ope
 String response = sh(script:"""curl --location --request POST 'http://18.224.228.236:8181/v1/data/gitlab/policy' --header 'Content-Type: application/json' --data-raw '{ "input" : {"ticker": "master","user": "alice"
 } }'""", returnStdout: true)
 println(response)
+
+}
