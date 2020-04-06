@@ -15,3 +15,10 @@ String response = sh(script:"""curl --location --request POST 'http://18.224.228
 println(response)
 
 }
+if ( response == "{"result"/"allow"/true}" ){
+println("You can build a job")
+
+}
+else{
+error("Build failed beacuse you do not have permission to trigger a build")
+}
