@@ -19,26 +19,13 @@ println(response)
 def resultJson= readJSON text: response	
 println(resultJson.result.allow)
 
-//try
-//{
-//def jsonSlurper = new JsonSlurper()
-//f reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/rigoutput.json"),"UTF-8"))
-//def resultJson = jsonSlurper.parse(response)
-//println(resultJson.result.allow)
-//return JsonOutput.toJson(resultJson.result)
-}
-  //catch(Exception e)
-//{
-	//println(response)
-//	e.printStackTrace()
-	
-//}
-//}
-  
-//if ( response == {/"result/":{/"allow/":false,/"object_attributes/":{/"feature/":{/"devcan/":"merge",/"permission/":"granted"},/"master/":{"admincan":"merge","permission":"granted"}},"user_attributes":{"alice":{"commits":15,"role":"admin"},"bob":{"commits":5,"role":"developer"}}}}){    
-//println("You can build a job")
 
-//}
-//else{
-//error("Build failed beacuse you do not have permission to trigger a build")
-//}
+  
+if ( resultJson.result.allow == "true"){    
+println("You can build a job")
+
+}
+else{
+error("Build failed beacuse you do not have permission to trigger a build")
+}
+}
