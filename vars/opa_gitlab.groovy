@@ -22,7 +22,7 @@ println(resultJson.result.allow)
 if ( resultJson.result.allow == "true")
 {    
 println("Authorization is successfull")
-continue
+exit
 }
 else
 {
