@@ -13,8 +13,21 @@ sh "curl -X PUT http://18.224.228.236:8181/v1/policies/gitlab --data-binary @ope
 String response = sh(script:"""curl --location --request POST 'http://18.224.228.236:8181/v1/data/gitlab/policy' --header 'Content-Type: application/json' --data-raw '{ "input" : {"ticker": "master","user": "'${userid}'"
 } }'""", returnStdout: true)
 println(response)
-add = response.result
-  println(add)
+ 
+  try
+ {
+def jsonSlurper = new JsonSlurper()
+//f reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/rigoutput.json"),"UTF-8"))
+def resultJson = jsonSlurper.parse(response)
+ 
+return JsonOutput.toJson(resultJson)
+}
+catch(Exception e)
+{
+	//println(response)
+	e.printStackTrace()
+	
+}
 }
 //if ( response == {/"result/":{/"allow/":false,/"object_attributes/":{/"feature/":{/"devcan/":"merge",/"permission/":"granted"},/"master/":{"admincan":"merge","permission":"granted"}},"user_attributes":{"alice":{"commits":15,"role":"admin"},"bob":{"commits":5,"role":"developer"}}}}){    
 //println("You can build a job")
