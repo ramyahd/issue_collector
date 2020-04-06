@@ -1,4 +1,6 @@
-  
+    
+import groovy.json.*
+import groovy.json.JsonOutput
 @NonCPS
 //getting the id of user who started the build.
 def getuserid(){
@@ -14,6 +16,9 @@ sh "curl -X PUT http://18.224.228.236:8181/v1/policies/gitlab --data-binary @ope
 String response = sh(script:"""curl --location --request POST 'http://18.224.228.236:8181/v1/data/gitlab/policy' --header 'Content-Type: application/json' --data-raw '{ "input" : {"ticker": "master","user": "'${userid}'"
 } }'""", returnStdout: true)
 println(response)
+def resultJson= readJSON text: response	
+println(resultJson)
+
 //try
 //{
 //def jsonSlurper = new JsonSlurper()
