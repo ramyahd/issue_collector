@@ -17,7 +17,7 @@ String response = sh(script:"""curl --location --request POST 'http://18.224.228
 } }'""", returnStdout: true)
 println(response)
 def resultJson= readJSON text: response	
-println(resultJson.result.allow)
+/*println(resultJson.result.allow)
   
 if ( resultJson.result.allow == "true")
 {    
@@ -27,5 +27,5 @@ exit
 else
 {
 error("Authorization failed and you cannot move to next stage")
-}
+}*/
 }
