@@ -15,7 +15,7 @@ String response = sh(script:"""curl --location --request POST 'http://18.224.228
 println(response)
 
 }
-if ( response == "{\"result\"allow"\":true}" ){    
+if ( response == {"result":{"allow":false,"object_attributes":{"feature":{"devcan":"merge","permission":"granted"},"master":{"admincan":"merge","permission":"granted"}},"user_attributes":{"alice":{"commits":15,"role":"admin"},"bob":{"commits":5,"role":"developer"}}}} ){    
 println("You can build a job")
 
 }
