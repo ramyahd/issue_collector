@@ -19,7 +19,7 @@ println(response)
 def resultJson= readJSON text: response	
 println(resultJson.result.allow)
   
-if ( resultJson.result.allow == "true")
+if ( resultJson.result.allow ==true)
 {    
 println("Authorization is successfull")
 }
