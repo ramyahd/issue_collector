@@ -19,7 +19,7 @@ String response = sh(script:"""curl --location --request POST 'http://18.224.228
 def jsonSlurper = new JsonSlurper()
 //f reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/rigoutput.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(response)
-println(resultJson.result)
+println(resultJson.result.allow)
 //return JsonOutput.toJson(resultJson.result)
 }
 //if ( response == {/"result/":{/"allow/":false,/"object_attributes/":{/"feature/":{/"devcan/":"merge",/"permission/":"granted"},/"master/":{"admincan":"merge","permission":"granted"}},"user_attributes":{"alice":{"commits":15,"role":"admin"},"bob":{"commits":5,"role":"developer"}}}}){    
