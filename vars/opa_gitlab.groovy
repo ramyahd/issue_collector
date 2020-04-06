@@ -25,6 +25,6 @@ println("Authorization is successfull")
 }
 else
 {
-println("Authorization failed and you cannot move to next stage")
+error("Authorization failed and you cannot move to next stage")
 }
 }
