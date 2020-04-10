@@ -18,7 +18,6 @@ def create1()
 {
   
   def jsonSlurper = new JsonSlurper()
-  //def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/ouput.json"),"UTF-8"))
   
   def resultJson = jsonSlurper.parse(new File("/var/lib/jenkins/workspace/${JOB_NAME}/metrics.json"))
   
